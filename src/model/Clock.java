@@ -1,5 +1,6 @@
 package model;
 
+
 /**
  * @author Gocario
  * @version 1.1
@@ -7,38 +8,44 @@ package model;
 public class Clock
 {
 	private long tStart = 0;
-	private long tOld = 0;
 	private long tElapsed = 0;
 
-	private boolean isRunning;
-
-	public Clock()
-	{
-		this.reset();
-	}
+	private boolean isRunning = false;
 
 
+	public Clock() { }
+
+
+	/**
+	 * Lance le timer
+	 */
 	public void start()
 	{
-		this.reset();
+		this.tStart = System.currentTimeMillis();
 		this.isRunning = true;
 	}
 
+	/**
+	 * Arrête le timer
+	 */
 	public void stop()
 	{
 		this.getDelta();
 		this.isRunning = false;
 	}
 
+	/**
+	 * Remet à zéro le timer
+	 */
 	private void reset()
 	{
-		this.tStart = this.tOld = System.currentTimeMillis();
+		this.tStart = System.currentTimeMillis();
 		this.tElapsed = 0;
 		this.isRunning = false;
 	}
 
 	/**
-	 * @return Time elapsed in millisecond
+	 * @return Temps passé en millisecondes
 	 */
 	public long getElapsedTime()
 	{
@@ -47,7 +54,7 @@ public class Clock
 	}
 
 	/**
-	 * @return Time elapsed in millisecond
+	 * @return Temps passé en millisecondes
 	 * @see Clock#getElapsedTime
 	 */
 	public long getElapsedMillis()
@@ -56,7 +63,7 @@ public class Clock
 	}
 
 	/**
-	 * @return Time elapsed in second
+	 * @return Temps passé en secondes
 	 * @see Clock#getElapsedTime
 	 */
 	public double getElapsedSeconds()
@@ -64,6 +71,10 @@ public class Clock
 		return ((double) this.getElapsedTime()) / 1000;
 	}
 
+	/**
+	 * Calcul la différence de temps entre le dernier calcul de différence
+	 * @return La différence de temps en millisecondes
+	 */
 	public long getDelta()
 	{
 		long diff = 0;
@@ -72,9 +83,9 @@ public class Clock
 		{
 			long tNew = System.currentTimeMillis();
 
-			diff = (tNew - this.tOld);
+			diff = (tNew - this.tStart);
 
-			this.tOld = tNew;
+			this.tStart = tNew;
 			this.tElapsed += diff;
 		}
 

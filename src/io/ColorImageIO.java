@@ -11,9 +11,12 @@ import javax.imageio.ImageIO;
 import model.Color;
 import model.ColorImage;
 
+
 /**
  * @author Gocario
  * @version 1.1
+ *
+ * @see ColorImage
  */
 public class ColorImageIO
 {
@@ -21,18 +24,19 @@ public class ColorImageIO
     public static ColorImage readFile(String filename)
     {
         File file = new File(filename);
-        ColorImage imResult = null;
+        ColorImage colorImage = null;
+        
         try
         {
             BufferedImage bufferedImage = ImageIO.read(file);
-            imResult = convertBufferedImageToColorImage(bufferedImage);
+            colorImage = convertBufferedImageToColorImage(bufferedImage);
         }
         catch (Exception e)
         {
             System.err.println("File : " + filename + " not found");
         }
 
-        return imResult;
+        return colorImage;
     }
 
     public static void writeFile(ColorImage colorImage, String filename)

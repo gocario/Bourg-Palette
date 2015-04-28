@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 
 import model.ColorImage;
 
+
 /**
  * @author Gocario
  * @version 1.0

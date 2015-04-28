@@ -2,13 +2,14 @@ package model;
 
 import model.Color;
 
+
 /**
  * @author Gocario
  * @version 1.1
  */
 public class ColorImage
 {
-	private static final Color BORDER_VALUE = null;
+	private static final Color BORDER_VALUE = new Color(0, 255, 0);
 	private int sizeX;
 	private int sizeY;
 	private int nbPixels;

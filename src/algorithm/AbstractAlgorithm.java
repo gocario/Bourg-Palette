@@ -9,15 +9,16 @@ import model.ColorImage;
  */
 public abstract class AbstractAlgorithm implements IAlgorithm
 {
-	private ColorImage inputImage;
-	private ColorImage outputImage;
+	protected ColorImage inputImage;
+	protected ColorImage outputImage;
 
 	protected AbstractAlgorithm(ColorImage inputImage)
 	{
 		this.inputImage = inputImage;
-		this.outputImage = new
+		this.outputImage = new ColorImage(inputImage.getSizeX(), inputImage.getSizeY());
 	}
 
+	@Override
 	public ColorImage getResult()
 	{
 		return this.outputImage;
