@@ -59,7 +59,7 @@ public class Clock
 	 */
 	public long getElapsedMillis()
 	{
-		return this.getElapsedTime;
+		return this.getElapsedTime();
 	}
 
 	/**

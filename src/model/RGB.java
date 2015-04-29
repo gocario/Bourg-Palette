@@ -29,9 +29,9 @@ public class RGB
 		float blue = this.blue / 255;
 
 
-		float max = (float) max(red, green, blue);
-		float min = (float) min(red, green, blue);
-		float delta = max - min;
+		Float max = (Float) max(red, green, blue);
+		Float min = (Float) min(red, green, blue);
+		Float delta = max - min;
 
 
 		int hue = 0;

@@ -1,16 +1,12 @@
 package io;
 
 import java.awt.image.BufferedImage;
-
 import java.awt.image.DataBuffer;
-
 import java.io.File;
-
 import javax.imageio.ImageIO;
 
 import model.Color;
 import model.ColorImage;
-
 
 /**
  * @author Gocario

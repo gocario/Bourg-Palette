@@ -3,13 +3,13 @@ package algorithm;
 import model.Color;
 import model.ColorImage;
 
-
 /**
  * @author Gocario
  * @version 1.0
  */
 public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 {
+	private static final Color COLOR_BLANK = Color.SlimeGreen;
 	public Aura(ColorImage inputImage)
 	{
 		super(inputImage);
@@ -21,10 +21,10 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 	{
 		Color value;
 
-		if (!inputImage.getPixel(col    , row - 1).equals(Color.Blank) ||
-			!inputImage.getPixel(col - 1, row    ).equals(Color.Blank) ||
-			!inputImage.getPixel(col + 1, row    ).equals(Color.Blank) ||
-			!inputImage.getPixel(col    , row + 1).equals(Color.Blank))
+		if (!inputImage.getPixel(col    , row - 1).equals(COLOR_BLANK) ||
+			!inputImage.getPixel(col - 1, row    ).equals(COLOR_BLANK) ||
+			!inputImage.getPixel(col + 1, row    ).equals(COLOR_BLANK) ||
+			!inputImage.getPixel(col    , row + 1).equals(COLOR_BLANK))
 		{
 			value = null;
 		}

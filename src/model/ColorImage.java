@@ -1,8 +1,5 @@
 package model;
 
-import model.Color;
-
-
 /**
  * @author Gocario
  * @version 1.1
