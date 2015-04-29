@@ -1,6 +1,5 @@
 package model;
 
-
 /**
  * @author Gocario
  * @version 1.0
@@ -65,58 +64,69 @@ public class Color
 
 	public String toHexa()
 	{
-		return String.format("0x%06X", this.getRGB() & 0xFFFFFF));
+		return String.format("0x%06X", this.getRGB() & 0xFFFFFF);
 	}
 
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder();
-		
-		sb.append(this.getRed());
-	    sb.append("-");
-	    sb.append(this.getGreen());
-	    sb.append("-");
-	    sb.append(this.getBlue());
-		
-		return sb.toString();
-	}
+		return String.format("0x%06X", this.getRGB() & 0xFFFFFF);
 
-	private static final Pattern FROM_HEX = Pattern.compile("^(#|0x)([0-9A-Fa-f]+)$");
+		// StringBuilder sb = new StringBuilder();
 
-	public static Color fromHexString(String hexString)
-	{
-		Matcher matcher = FROM_HEX.matcher(hexString);
-		matcher.find();
-		String hexValue = matcher.group(2)
-		int rgbValue = Integer.parseInt(hexValue, 16);
+		// sb.append(this.getRed());
+		// sb.append("-");
+		// sb.append(this.getGreen());
+		// sb.append("-");
+		// sb.append(this.getBlue());
 
-		return new Color(rgbValue);
+		// return sb.toString();
 	}
 
 
 	/** Border colors **/
-	public static final Black = new Color(0x000000);
-	public static final White = new Color(0xFFFFFF);
+	public static final Color Black = new Color(0x000000);
+	public static final Color White = new Color(0xFFFFFF);
 
 
 	/** Primary colors **/
-	public static final Red = new Color(0xFF0000);
-	public static final Green = new Color(0x00FF00);
-	public static final Blue = new Color(0x0000FF);
+	public static final Color Red = new Color(0xFF0000);
+	public static final Color Green = new Color(0x00FF00);
+	public static final Color Blue = new Color(0x0000FF);
 
 	/** Secondary colors **/
-	public static final Yellow = new Color(0xFFFF00);
-	public static final Cyan = new Color(0x00FFFF);
-	public static final Magenta = new Color(0xFF00FF);
+	public static final Color Yellow = new Color(0xFFFF00);
+	public static final Color Cyan = new Color(0x00FFFF);
+	public static final Color Magenta = new Color(0xFF00FF);
 
 	/** Tertiary colors **/
-	public static final Orange = new Color(0xFF7F00);
-	public static final ChartreuseGreen = new Color(0x7FFF00);
-	public static final SpringGreen = new Color(0x00FF7F);
-	public static final Azure = new Color(0x007FFF);
-	public static final Violet = new Color(0x7F00FF);
-	public static final Rose = new Color(0xFF007F);
+	public static final Color Orange = new Color(0xFF7F00);
+	public static final Color ChartreuseGreen = new Color(0x7FFF00);
+	public static final Color SpringGreen = new Color(0x00FF7F);
+	public static final Color Azure = new Color(0x007FFF);
+	public static final Color Violet = new Color(0x7F00FF);
+	public static final Color Rose = new Color(0xFF007F);
+
+	
+
+	/** A palette **/
+	public static final Color Void = new Color(0x000000);
+	public static final Color Ash = new Color(0x9D9D9D);
+	public static final Color Blind = new Color(0xFFFFFF);
+	public static final Color BloodRed = new Color(0xBE2633);
+	public static final Color Pigmeat = new Color(0xE06F8B);
+	public static final Color OldPoop = new Color(0x493C2B);
+	public static final Color NewPoop = new Color(0xA46422);
+	public static final Color Blaze = new Color(0xEB8931);
+	public static final Color Zornskin = new Color(0xF7E26B);
+	public static final Color ShadeGreen = new Color(0x2F484E);
+	public static final Color LeafGreen = new Color(0x44891A);
+	public static final Color SlimeGreen = new Color(0xA3CE27);
+	public static final Color NightBlue = new Color(0x1B2632);
+	public static final Color SeaBlue = new Color(0x005784);
+	public static final Color SkyBlue = new Color(0x31A2F2);
+	public static final Color CloudBlue = new Color(0xB2DCEF);
+
 
 
 	// public static final SteelBlue = new Color(0x4682B4);
