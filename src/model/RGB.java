@@ -29,8 +29,8 @@ public class RGB
 		float blue = this.blue / 255;
 
 
-		Float max = (Float) max(red, green, blue);
-		Float min = (Float) min(red, green, blue);
+		Float max = (Float) Math.max(red, green, blue);
+		Float min = (Float) Math.min(red, green, blue);
 		Float delta = max - min;
 
 
@@ -69,36 +69,6 @@ public class RGB
 
 		HSV hsv = new HSV(hue, saturation, value);
 		return hsv;
-	}
-
-	private static Comparable min(Comparable... values)
-	{
-		Comparable min = values[0];
-
-		for (int i = 1; i < values.length; i++)
-		{
-			if (values[i].compareTo(min) == -1)
-			{
-				min = values[i];
-			}
-		}
-
-		return min;
-	}
-
-	private static Comparable max(Comparable... values)
-	{
-		Comparable max = values[0];
-
-		for (int i = 1; i < values.length; i++)
-		{
-			if (values[i].compareTo(max) == 1)
-			{
-				max = values[i];
-			}
-		}
-
-		return max;
 	}
 
 	@Override
