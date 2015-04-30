@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding="UTF-8" standalone="yes" ?>
+<palette type="gradient">
+    <spectrums>
+        <spectrum>
+            <name>Grayhte</name>
+            <colors>
+                <color>0x7B7B7B</color>
+                <color>0xBBBBBB</color>
+                <color>0xFBFBFB</color>
+            </colors>
+        </spectrum>
+        <spectrum>
+            <name>Light Blue</name>
+            <colors>
+                <color>0x110EFA</color>
+                <color>0x0E78F6</color>
+                <color>0x3DBCA</color>
+                <color>0xA3E3FB</color>
+            </colors>
+        </spectrum>
+        <spectrum>
+            <name>Dark Blue</name>
+            <colors>
+                <color>0x
+            </colors>
+        </spectrum>
+    </spectrums>
+</palette>
