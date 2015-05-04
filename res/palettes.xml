@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<palette>
+	<name>Standard</name>
+	<spectrum>
+		<color>0xF8F8F8</color>
+		<color>0xA8A8A8</color>
+		<color>0x606060</color>
+		<color>0x000000</color>
+	</spectrum>
+</palette>
+<palette>
+	<name>Blue Sea</name>
+	<spectrum>
+		<color>0x0080C0</color>
+		<color>0x8080F8</color>
+		<color>0x8000F8</color>
+		<color>0x0000A0</color>
+	</spectrum>
+</palette>
+<palette>
+	<name>Dark Night</name>
+	<spectrum>
+		<color>0x400080</color>
+		<color>0x000080</color>
+		<color>0x000040</color>
+		<color>0x400040</color>
+	</spectrum>
+</palette>
+<palette>
+	<name>Green Forest</name>
+	<spectrum>
+		<color>0x80F880</color>
+		<color>0x00F800</color>
+		<color>0x008080</color>
+		<color>0x008040</color>
+	</spectrum>
+</palette>
+<palette>
+	<name>Hot Desert</name>
+	<spectrum>
+		<color>0xF8F880</color>
+		<color>0xF8F800</color>
+		<color>0xF88040</color>
+		<color>0xF88000</color>
+	</spectrum>
+</palette>
+<palette>
+	<name>Pink Dreams</name>
+	<spectrum>
+		<color>0xF880C0</color>
+		<color>0xF880F8</color>
+		<color>0xF800F8</color>
+		<color>0x800040</color>
+	</spectrum>
+</palette>
+<palette>
+	<name>Weird Colors</name>
+	<spectrum>
+		<color>0xF880C0</color>
+		<color>0xF80080</color>
+		<color>0xF80000</color>
+		<color>0x800040</color>
+	</spectrum>
+</palette>
+<palette>
+	<name>Real GB</name>
+	<spectrum>
+		<color>0x70E030</color>
+		<color>0x00B000</color>
+		<color>0x006818</color>
+		<color>0x005020</color>
+	</spectrum>
+</palette>
+<palette>
+	<name>Real GBA</name>
+	<spectrum>
+		<color>0xF0F0F0</color>
+		<color>0xC0D8A8</color>
+		<color>0x0090A8</color>
+		<color>0xE0A0A0</color>
+		<color>0x806050</color>
+		<color>0x000000</color>
+	</spectrum>
+</palette>
+
+<!--
+<palette>
+	<name></name>
+	<spectrum>
+		<color></color>
+		<color></color>
+		<color></color>
+		<color></color>
+	</spectrum>
+</palette>
+-->

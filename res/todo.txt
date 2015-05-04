@@ -1,0 +1,9 @@
+Désinstaller logiciels :
+  IntelliJ IDEA
+  Paint.net
+  Java JDK 8u45
+
+Vider dossiers :
+  I:\winnt\mes documents\Téléchargements
+  I:\winnt\mes documents\data
+  I:\winnt\mes documents\Github

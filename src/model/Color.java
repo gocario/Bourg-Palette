@@ -40,21 +40,21 @@ public class Color
 	
 	
 	/**
-	 * @shortuct Color#getRed
+	 * @shortcut Color#getRed
 	 */
 	public int getR()
 	{
 		return this.getRed();
 	}
 	/**
-	 * @shortuct Color#getGreen
+	 * @shortcut Color#getGreen
 	 */
 	public int getG()
 	{
 		return this.getGreen();
 	}
 	/**
-	 * @shortuct Color#getBlue
+	 * @shortcut Color#getBlue
 	 */
 	public int getB()
 	{
@@ -82,6 +82,20 @@ public class Color
 
 		// return sb.toString();
 	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof Color)
+		{
+			Color that = (Color) obj;
+
+			return that.rgb == this.rgb;
+		}
+
+		return false;
+	}
+
 
 
 	/** Border colors **/
@@ -127,7 +141,18 @@ public class Color
 	public static final Color SkyBlue = new Color(0x31A2F2);
 	public static final Color CloudBlue = new Color(0xB2DCEF);
 
+	/** Golden Sun Menu **/
+	public static final Color GSBrightBlueMenu = new Color(0x0880B8);
+	public static final Color GSLightBlueMenu = new Color(0x0870A8);
+	public static final Color GSNormalBlueMenu = new Color(0x086898);
+	public static final Color GSDrabBlueMenu = new Color(0x005870);
+	public static final Color GSDarkBlueMenu = new Color(0x005060);
+	public static final Color GSObscureBlueMenu = new Color(0x004850);
 
+	public static final Color GSWhiteMenu = new Color(0xF8F8F8);
+	public static final Color GSLightGreyMenu = new Color(0xA0A0A0);
+	public static final Color GSDarkGreyMenu = new Color(0x505050);
+	public static final Color GSBlackMenu = new Color(0x000000);
 
 	// public static final SteelBlue = new Color(0x4682B4);
 	// public static final DeepSkyBlue = new Color(0x00BFFF);
