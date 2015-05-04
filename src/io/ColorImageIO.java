@@ -81,6 +81,7 @@ public class ColorImageIO
 				Color value = new Color(bufferedImage.getRGB(col, row));
 
 				System.out.println("(" + col + "," + row + "): " + value);
+				System.out.println(Color.Magenta.toHexa());
 
 				colorImage.setPixel(col, row, value);
 			}

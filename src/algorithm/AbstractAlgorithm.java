@@ -17,6 +17,13 @@ public abstract class AbstractAlgorithm implements IAlgorithm<ColorImage>
 		this.outputImage = new ColorImage(inputImage.getSizeX(), inputImage.getSizeY());
 	}
 
+	protected AbstractAlgorithm(ColorImage inputImage, int sizeX, int sizeY)
+	{
+		this.inputImage = inputImage;
+		this.outputImage = new ColorImage(sizeX, sizeY);
+	}
+
+
 	@Override
 	public ColorImage getResult()
 	{

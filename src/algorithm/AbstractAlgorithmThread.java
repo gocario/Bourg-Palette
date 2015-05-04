@@ -11,7 +11,7 @@ public abstract class AbstractAlgorithmThread extends Thread
 	protected int xMax;
 	protected int yMax;
 
-	public AbstractAlgorithmThread(int xMin, int yMin, int xMax, int yMax)
+	protected AbstractAlgorithmThread(int xMin, int yMin, int xMax, int yMax)
 	{
 		this.xMin = xMin;
 		this.yMin = yMin;

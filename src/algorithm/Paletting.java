@@ -6,6 +6,7 @@ import model.ColorImage;
 import java.util.ArrayList;
 
 /**
+ * Read and store all differents
  * @author Gocario
  * @version 1.0
  */
@@ -36,10 +37,10 @@ public class Paletting extends AbstractAlgorithm
 				{
 					colors.add(value);
 				}
-
-				outputImage.setPixel(col, row, Color.Magenta);
 			}
 		}
+
+		outputImage = new ColorImage(colors.size(), 1);
 
 		for (int i = 0; i < colors.size(); i++)
 		{

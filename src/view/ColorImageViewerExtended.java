@@ -1,22 +1,17 @@
 package view;
 
+
 import io.ColorImageIO;
-
-import java.awt.FlowLayout;
-import java.awt.image.BufferedImage;
-
-import java.util.ArrayList;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
 import model.ColorImage;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * @author Gocario
- * @version 1.0
+ * @version 1.1
  *
  * @see ColorImage
  */
@@ -32,16 +27,25 @@ public class ColorImageViewerExtended
 	public void show()
 	{
 		JFrame frame = new JFrame("ColorImage Viewer - Extended Edition Gold 2008 Collector");
-		frame.setLayout(new FlowLayout());
+		// frame.setLayout();
+
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout());
 
 		int size = images.size();
 		for (int i = 0; i < size; i++)
 		{
 			BufferedImage bufferedImage = ColorImageIO.convertColorImageToBufferedImage(images.get(i));
-			frame.add(new JLabel(new ImageIcon(bufferedImage)));
+			panel.add(new JLabel(new ImageIcon(bufferedImage)));
 		}
 
-		frame.pack();
+		JScrollPane scrollPane = new JScrollPane(panel);
+		frame.add(scrollPane);
+
+
+		//frame.pack();
+		frame.setSize(1800, 980);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
