@@ -3,11 +3,11 @@ package model;
 
 /**
  * @author Gocario
- * @version 1.1
+ * @version 1.2
  */
 public class Clock
 {
-	private long tStart = 0;
+	private long tLast = 0;
 	private long tElapsed = 0;
 
 	private boolean isRunning = false;
@@ -21,7 +21,7 @@ public class Clock
 	 */
 	public void start()
 	{
-		this.tStart = System.currentTimeMillis();
+		this.tLast = System.currentTimeMillis();
 		this.isRunning = true;
 	}
 
@@ -39,7 +39,7 @@ public class Clock
 	 */
 	private void reset()
 	{
-		this.tStart = System.currentTimeMillis();
+		this.tLast = 0;
 		this.tElapsed = 0;
 		this.isRunning = false;
 	}
@@ -83,9 +83,9 @@ public class Clock
 		{
 			long tNew = System.currentTimeMillis();
 
-			diff = (tNew - this.tStart);
+			diff = (tNew - this.tLast);
 
-			this.tStart = tNew;
+			this.tLast = tNew;
 			this.tElapsed += diff;
 		}
 
