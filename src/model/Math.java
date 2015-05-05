@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Random;
+
 /**
  * @author Gocario
  * @version 1.0
@@ -36,4 +38,16 @@ public class Math {
         return max;
     }
 
+    private static Random rand = null;
+	public static int randInt(int min, int max) {
+
+	if (rand == null)
+	{
+		rand = new Random();
+	}
+
+	int randomNum = rand.nextInt((max - min)) + min;
+
+	return randomNum;
+	}
 }

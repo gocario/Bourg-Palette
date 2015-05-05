@@ -35,6 +35,15 @@ public class Clock
 	}
 
 	/**
+	 * Relance le timer à zéro
+	 */
+	public void restart()
+	{
+		this.reset();
+		this.start();
+	}
+
+	/**
 	 * Remet à zéro le timer
 	 */
 	private void reset()
