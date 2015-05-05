@@ -17,7 +17,7 @@ public class TestLiquidCrystal
 {
 	public static void main(String[] args)
 	{
-		args = new String[] {"res/scrafty.png"};
+		args = new String[] {"res/poke/madkip_big.png"};
 
 		if (args.length != 1)
 		{
@@ -42,41 +42,14 @@ public class TestLiquidCrystal
 		images.add(algo.getResult());
 
 
-		ColorImageIO.writeFile(algo.getResult(), "res/s00.png");
-
-
-		algo = new LiquidCrystal(algo.getResult());
-		algo.process();
-		images.add(algo.getResult());
-
-		ColorImageIO.writeFile(algo.getResult(), "res/s01.png");
-
-		algo = new Extend(algo.getResult(), 2.0f);
-		algo.process();
-		images.add(algo.getResult());
-
-
-
-		ColorImageIO.writeFile(algo.getResult(), "res/s11.png");
-
-
-		algo = new Extend(inputImage, 3.0f);
-		algo.process();
-		images.add(algo.getResult());
-
-		algo = new Extend(algo.getResult(), 2.0f);
-		algo.process();
-		images.add(algo.getResult());
-
 		algo = new LiquidCrystal(algo.getResult());
 		algo.process();
 		images.add(algo.getResult());
 
 
-		ColorImageIO.writeFile(algo.getResult(), "res/s12.png");
 
 
-		// ColorImageIO.writeFile(algo.getResult(), "res/scrafty_small.png");
+		ColorImageIO.writeFile(algo.getResult(), "res/poke/madkip_big_lc.png");
 
 		ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
 		viewer.show();

@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * @author Gocario
@@ -8,24 +9,54 @@ import java.util.ArrayList;
  */
 public class Palette
 {
-	public static final Palette REAL_GB = new Palette(new Spectrum(0x70E030, 0x00B000, 0x006818, 0x005020));
+	public static final Palette REAL_GB = new Palette(Spectrum.REAL_GB, Spectrum.REAL_GB);
 
 
 	private String name = "PALETTE_DEFAULT_NAME";
-	private ArrayList<Spectrum> spectrums = new ArrayList<Spectrum>();
+	private final ArrayList<Spectrum> spectrums = new ArrayList<Spectrum>();
 
 	public Palette(ArrayList<Spectrum> spectrums)
 	{
 		this.spectrums.addAll(spectrums);
 	}
-	public Palette(Spectrum spectrum)
+	public Palette(Spectrum... spectrums)
 	{
-		spectrums.add(spectrum);
+		for (int i = 0; i < spectrums.length; i++)
+		{
+			this.spectrums.add(spectrums[i]);
+		}
 	}
 
 
 	public Spectrum get(int idx)
 	{
 		return spectrums.get(idx);
+	}
+
+	public Color get(int idx1, int idx2)
+	{
+		return spectrums.get(idx1).get(idx2);
+	}
+
+
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("<Palette ");
+		sb.append(this.name);
+		sb.append(" >");
+
+		for (Iterator<Spectrum> iterator = this.spectrums.iterator(); iterator.hasNext();)
+		{
+			Spectrum spectrum = iterator.next();
+
+			sb.append('\n');
+			sb.append('\t');
+			sb.append(spectrum.toString());
+		}
+
+		return sb.toString();
 	}
 }

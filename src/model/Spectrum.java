@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * @author Gocario
@@ -8,8 +9,12 @@ import java.util.ArrayList;
  */
 public class Spectrum
 {
+	public static final Spectrum REAL_GB = new Spectrum(0x70E030, 0x00B000, 0x006818, 0x005020);
+
+
 	private String name = "SPECTRUM_DEFAULT_NAME";
-	private ArrayList<Color> colors = new ArrayList<Color>();
+	private final ArrayList<Color> colors = new ArrayList<Color>();
+
 
 	public Spectrum(ArrayList<Color> colors)
 	{
@@ -33,9 +38,31 @@ public class Spectrum
 	}
 
 
-
 	public Color get(int idx)
 	{
 		return colors.get(idx);
+	}
+
+
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("<Spectrum ");
+		sb.append(this.name);
+		sb.append(" >");
+
+		for (Iterator<Color> iterator = this.colors.iterator(); iterator.hasNext();)
+		{
+			Color color = iterator.next();
+
+			sb.append('\n');
+			sb.append('\t');
+			sb.append('\t');
+			sb.append(color.toHexa());
+		}
+
+		return sb.toString();
 	}
 }
