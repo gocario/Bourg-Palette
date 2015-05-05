@@ -3,7 +3,6 @@ package io;
 import model.Color;
 import model.ColorImage;
 import model.Palette;
-import model.Spectrum;
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -34,7 +33,7 @@ public class PaletteIO
 		for (int col = 0; col < sizeX; col++)
 		{
 			Spectrum spectrum = new Spectrum();
-			spectrum.setName("Spectrum " + col);
+			spectrum.setName("Palette " + col);
 
 			for (int row = 0; row < sizeY; row++)
 			{
