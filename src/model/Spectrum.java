@@ -10,6 +10,7 @@ import java.util.Iterator;
 public class Spectrum
 {
 	public static final Spectrum REAL_GB = new Spectrum(0x70E030, 0x00B000, 0x006818, 0x005020);
+	public static final Spectrum IceBlue = new Spectrum(0x0026FF, 0x0094FF, 0x00FFFF);
 
 
 	private String name = "SPECTRUM_DEFAULT_NAME";
@@ -38,11 +39,20 @@ public class Spectrum
 	}
 
 
+	public int size()
+	{
+		return this.colors.size();
+	}
+
 	public Color get(int idx)
 	{
 		return colors.get(idx);
 	}
 
+	public Iterator<Color> iterator()
+	{
+		return this.colors.iterator();
+	}
 
 	@Override
 	public String toString()

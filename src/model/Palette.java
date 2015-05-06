@@ -28,6 +28,11 @@ public class Palette
 	}
 
 
+	public int size()
+	{
+		return this.spectrums.size();
+	}
+
 	public Spectrum get(int idx)
 	{
 		return spectrums.get(idx);
@@ -38,6 +43,10 @@ public class Palette
 		return spectrums.get(idx1).get(idx2);
 	}
 
+	public Iterator<Spectrum> iterator()
+	{
+		return this.spectrums.iterator();
+	}
 
 	@Override
 	public String toString()

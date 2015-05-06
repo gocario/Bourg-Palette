@@ -15,7 +15,7 @@ public class Color
 	
 	public Color(int rgb)
 	{
-		this.rgb = rgb;
+		this.rgb = rgb & 0xFFFFFF;
 	}
 	
 	public int getRGB()
