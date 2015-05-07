@@ -6,17 +6,17 @@ package algorithm;
  */
 public abstract class AbstractAlgorithmThread extends Thread
 {
-	protected int xMin;
-	protected int yMin;
-	protected int xMax;
-	protected int yMax;
+	protected int x;
+	protected int y;
+	protected int width;
+	protected int height;
 
-	protected AbstractAlgorithmThread(int xMin, int yMin, int xMax, int yMax)
+	protected AbstractAlgorithmThread(int x, int y, int width, int height)
 	{
-		this.xMin = xMin;
-		this.yMin = yMin;
-		this.xMax = xMax;
-		this.yMax = yMax;
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
 	}
 
 	@Override

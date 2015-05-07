@@ -22,6 +22,16 @@ public class RGB
 		this(0, 0, 0);
 	}
 
+	public RGB(int rgb)
+	{
+		rgb = rgb & 0xFFFFFF;
+
+		this.red =   (rgb >> 16) & 0x0000FF;
+		this.green = (rgb >>  8) & 0x0000FF;
+		this.blue =  (rgb >>  0) & 0x0000FF;
+	}
+
+
 	public HSV toHSV()
 	{
 		float red = this.red / 255;

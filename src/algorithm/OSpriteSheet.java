@@ -43,8 +43,8 @@ public class OSpriteSheet extends AbstractOAlgorithm
 	@Override
 	public void process()
 	{
-		int sizeX = resultImage.getSizeX();
-		int sizeY = resultImage.getSizeY();
+		int sizeX = resultImage.getWidth();
+		int sizeY = resultImage.getHeight();
 
 
 		for (int row = 0; row < sizeY; row++)
@@ -62,7 +62,7 @@ public class OSpriteSheet extends AbstractOAlgorithm
 					value = COLOR_BACKGROUND;
 				}
 
-				resultImage.setPixel(col, row, value);
+				resultImage.setColor(col, row, value);
 			}
 		}
 	}

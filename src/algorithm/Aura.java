@@ -5,8 +5,6 @@ import model.ColorImage;
 import model.Palette;
 import model.Spectrum;
 
-import java.util.Iterator;
-
 /**
  * @author Gocario
  * @version 1.0
@@ -36,12 +34,12 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 	{
 		Color value = COLOR_BLANK;
 
-		if (inputImage.getPixel(col, row).equals(COLOR_BLANK))
+		if (inputImage.getColor(col, row).equals(COLOR_BLANK))
 		{
-			if (!inputImage.getPixel(col    , row - 1).equals(COLOR_BLANK) ||
-				!inputImage.getPixel(col - 1, row    ).equals(COLOR_BLANK) ||
-				!inputImage.getPixel(col + 1, row    ).equals(COLOR_BLANK) ||
-				!inputImage.getPixel(col    , row + 1).equals(COLOR_BLANK))
+			if (!inputImage.getColor(col, row - 1).equals(COLOR_BLANK) ||
+				!inputImage.getColor(col - 1, row).equals(COLOR_BLANK) ||
+				!inputImage.getColor(col + 1, row).equals(COLOR_BLANK) ||
+				!inputImage.getColor(col, row + 1).equals(COLOR_BLANK))
 			{
 				value = spectrum.get(0);
 			}
@@ -53,14 +51,14 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 
 	public Color computeWindow(int col, int row, Color oldColor, Color newColor)
 	{
-		Color value = outputImage.getPixel(col, row);
+		Color value = outputImage.getColor(col, row);
 
-		if (inputImage.getPixel(col, row).equals(COLOR_BLANK) && value.equals(COLOR_BLANK))
+		if (inputImage.getColor(col, row).equals(COLOR_BLANK) && value.equals(COLOR_BLANK))
 		{
-			if (outputImage.getPixel(col    , row - 1).equals(oldColor) ||
-				outputImage.getPixel(col - 1, row    ).equals(oldColor) ||
-				outputImage.getPixel(col + 1, row    ).equals(oldColor) ||
-				outputImage.getPixel(col    , row + 1).equals(oldColor))
+			if (outputImage.getColor(col, row - 1).equals(oldColor) ||
+				outputImage.getColor(col - 1, row).equals(oldColor) ||
+				outputImage.getColor(col + 1, row).equals(oldColor) ||
+				outputImage.getColor(col, row + 1).equals(oldColor))
 			{
 				value = newColor;
 			}
@@ -72,15 +70,15 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 	@Override
 	public void process()
 	{
-		int sizeX = inputImage.getSizeX();
-		int sizeY = inputImage.getSizeY();
+		int width = inputImage.getWidth();
+		int height = inputImage.getHeight();
 
-		for (int row = 0; row < sizeY; row++)
+		for (int row = 0; row < height; row++)
 		{
-			for (int col = 0; col < sizeX; col++)
+			for (int col = 0; col < width; col++)
 			{
 				Color value = computeWindow(col, row);
-				outputImage.setPixel(col, row, value);
+				outputImage.setColor(col, row, value);
 			}
 		}
 
@@ -91,12 +89,12 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 		{
 			newColor = spectrum.get(i);
 
-			for (int row = 0; row < sizeY; row++)
+			for (int row = 0; row < height; row++)
 			{
-				for (int col = 0; col < sizeX; col++)
+				for (int col = 0; col < width; col++)
 				{
 					Color value = computeWindow(col, row, oldColor, newColor);
-					outputImage.setPixel(col, row, value);
+					outputImage.setColor(col, row, value);
 				}
 			}
 

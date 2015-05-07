@@ -3,6 +3,7 @@ package io;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
 import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import model.Color;
@@ -10,83 +11,89 @@ import model.ColorImage;
 
 /**
  * @author Gocario
- * @version 1.1
+ * @version 1.2
  *
  * @see ColorImage
  */
 public class ColorImageIO
 {
-
     public static ColorImage readFile(String filename)
     {
-        File file = new File(filename);
-        ColorImage colorImage = null;
-        
-        try
-        {
-            BufferedImage bufferedImage = ImageIO.read(file);
-            colorImage = convertBufferedImageToColorImage(bufferedImage);
-        }
-        catch (Exception e)
-        {
-            System.err.println("File : " + filename + " not found");
-        }
+		File file = new File(filename);
+		ColorImage colorImage = null;
+
+		try
+		{
+			BufferedImage bufferedImage = ImageIO.read(file);
+			colorImage = ColorImageIO.convertBufferedImageToColorImage(bufferedImage);
+		}
+		catch (IOException e)
+		{
+			System.err.println("File: " + filename + " not found!");
+		}
 
         return colorImage;
     }
 
     public static void writeFile(ColorImage colorImage, String filename)
     {
-        File file = new File(filename);
+		File file = new File(filename);
 
-        try
-        {
-            BufferedImage bufferedImage = convertColorImageToBufferedImage(colorImage);
-            ImageIO.write(bufferedImage, "png", file);
-        }
-        catch (Exception e)
-        {
-            System.err.println("Unable to write file : " + filename);
-        }
-
+		try
+		{
+			BufferedImage bufferedImage = ColorImageIO.convertColorImageToBufferedImage(colorImage);
+			ImageIO.write(bufferedImage, "png", file);
+		}
+		catch (IOException e)
+		{
+			System.err.println("Unable to write file: " + filename + "!");
+		}
     }
 
 
     public static BufferedImage convertColorImageToBufferedImage(ColorImage colorImage)
     {
-        int sizeX = colorImage.getSizeX();
-        int sizeY = colorImage.getSizeY();
-        BufferedImage bufferedImage = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
-        DataBuffer dataBuffer = bufferedImage.getRaster().getDataBuffer();
-        for (int i = 0; i < dataBuffer.getSize(); i++)
-        {
-            Color value = colorImage.getOffset(i);
-            dataBuffer.setElem(i, value.getRGB());
-        }
+		int width = colorImage.getWidth();
+		int height = colorImage.getHeight();
+
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+
+		for (int row = 0; row < height; row++)
+		{
+			for (int col = 0; col < width; col++)
+			{
+				Color color = colorImage.getColor(col, row);
+
+				bufferedImage.setRGB(col, row, color.getRGB());
+
+				System.out.println(color.toHexa());
+			}
+		}
+
+
+
         return bufferedImage;
     }
 
     public static ColorImage convertBufferedImageToColorImage(BufferedImage bufferedImage)
     {
-        ColorImage colorImage;
+		int width = bufferedImage.getWidth();
+		int height = bufferedImage.getHeight();
 
-        int sizeX = bufferedImage.getWidth();
-        int sizeY = bufferedImage.getHeight();
-        colorImage = new ColorImage(sizeX, sizeY);
+		ColorImage colorImage = new ColorImage(width, height);
 
-		for (int row = 0; row < sizeY; row++)
+		for (int row = 0; row < height; row++)
 		{
-			for (int col = 0; col < sizeX; col++)
+			for (int col = 0; col < width; col++)
 			{
-				Color value = new Color(bufferedImage.getRGB(col, row));
+				Color color = new Color(bufferedImage.getRGB(col, row));
 
-				System.out.println("(" + col + "," + row + "): " + value);
-				System.out.println(Color.Magenta.toHexa());
+				colorImage.setColor(col, row, color);
 
-				colorImage.setPixel(col, row, value);
+				System.out.println(color.toHexa());
 			}
 		}
 
-        return colorImage;
+		return colorImage;
     }
 }

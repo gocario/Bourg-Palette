@@ -13,7 +13,7 @@ public class Extend extends AbstractAlgorithm
 
 	public Extend(ColorImage inputImage, float ratio)
 	{
-		super(inputImage, (int) (inputImage.getSizeX() * ratio), (int) (inputImage.getSizeY() * ratio));
+		super(inputImage, (int) (inputImage.getWidth() * ratio), (int) (inputImage.getHeight() * ratio));
 
 		this.ratio = ratio;
 	}
@@ -21,18 +21,18 @@ public class Extend extends AbstractAlgorithm
 	@Override
 	public void process()
 	{
-		int sizeX = outputImage.getSizeX();
-		int sizeY = outputImage.getSizeY();
+		int width = outputImage.getWidth();
+		int height = outputImage.getHeight();
 
-		for (int row = 0; row < sizeY; row++)
+		for (int row = 0; row < height; row++)
 		{
-			for (int col = 0; col < sizeX; col++)
+			for (int col = 0; col < width; col++)
 			{
 				int x = (int) (col / ratio);
 				int y = (int) (row / ratio);
-				Color value = inputImage.getPixel(x, y);
+				Color value = inputImage.getColor(x, y);
 
-				outputImage.setPixel(col, row, value);
+				outputImage.setColor(col, row, value);
 			}
 		}
 	}

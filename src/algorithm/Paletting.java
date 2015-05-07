@@ -23,15 +23,15 @@ public class Paletting extends AbstractAlgorithm
 	{
 		ArrayList<Color> colors = new ArrayList<Color>();
 
-		int sizeX = inputImage.getSizeX();
-		int sizeY = inputImage.getSizeY();
+		int width = inputImage.getWidth();
+		int height = inputImage.getHeight();
 
 
-		for (int row = 0; row < sizeY; row++)
+		for (int row = 0; row < height; row++)
 		{
-			for (int col = 0; col < sizeX; col++)
+			for (int col = 0; col < width; col++)
 			{
-				Color value = inputImage.getPixel(col, row);
+				Color value = inputImage.getColor(col, row);
 
 				if (!colors.contains(value))
 				{
@@ -44,7 +44,7 @@ public class Paletting extends AbstractAlgorithm
 
 		for (int i = 0; i < colors.size(); i++)
 		{
-			outputImage.setOffset(i, colors.get(i));
+			outputImage.setColor(i, colors.get(i));
 		}
 	}
 }

@@ -28,8 +28,8 @@ public class PaletteIO
 
 		final Palette palette = new Palette();
 
-		final int sizeX = image.getSizeX();
-		final int sizeY = image.getSizeY();
+		final int sizeX = image.getWidth();
+		final int sizeY = image.getHeight();
 		for (int col = 0; col < sizeX; col++)
 		{
 			Spectrum spectrum = new Spectrum();
@@ -37,7 +37,7 @@ public class PaletteIO
 
 			for (int row = 0; row < sizeY; row++)
 			{
-				Color value = image.getPixel(col, row);
+				Color value = image.getColor(col, row);
 
 				spectrum.add(value);
 			}
