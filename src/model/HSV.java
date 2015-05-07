@@ -6,10 +6,28 @@ package model;
  */
 public class HSV implements IChroma
 {
+	/**
+	 * La composante teinte de la couleur.
+	 */
 	protected int hue;
+
+	/**
+	 * La composante saturation de la couleur.
+	 */
 	protected int saturation;
+
+	/**
+	 * La composante luminance de la couleur.
+	 */
 	protected int value;
 
+
+	/**
+	 * Créé une nouvelle couleur HSV.
+	 * @param hue La composante teinte.
+	 * @param saturation La composante saturation.
+	 * @param value La composante luminance.
+	 */
 	public HSV(int hue, int saturation, int value)
 	{
 		this.hue = hue;
@@ -17,10 +35,14 @@ public class HSV implements IChroma
 		this.value = value;
 	}
 
+	/**
+	 * Créé une nouvelle couleur HSV (Noir).
+	 */
 	public HSV()
 	{
 		this(0, 0, 0);
 	}
+
 
 	@Override
 	public String toString()

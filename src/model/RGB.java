@@ -6,10 +6,27 @@ package model;
  */
 public class RGB implements IChroma
 {
+	/**
+	 * La composante rouge de la couleur.
+	 */
 	protected int red;
+
+	/**
+	 * La composante verte de la couleur.
+	 */
 	protected int green;
+
+	/**
+	 * La composante bleu de la couleur.
+	 */
 	protected int blue;
 
+	/**
+	 * Créé une nouvelle couleur RGB.
+	 * @param red La composante rouge.
+	 * @param green La composante verte.
+	 * @param blue La composante bleu.
+	 */
 	public RGB(int red, int green, int blue)
 	{
 		this.red = red;
@@ -17,19 +34,35 @@ public class RGB implements IChroma
 		this.blue = blue;
 	}
 
+	/**
+	 * Créé une nouvelle couleur RGB (Noir).
+	 */
 	public RGB()
 	{
 		this(0, 0, 0);
 	}
 
+	/**
+	 * Créé une nouvelle couleur RGB.
+	 * @param rgb Les composantes de couleur.
+	 */
 	public RGB(int rgb)
 	{
-		rgb = rgb & 0xFFFFFF;
+		rgb = rgb & 0x00FFFFFF;
 
-		this.red =   (rgb >> 16) & 0x0000FF;
-		this.green = (rgb >>  8) & 0x0000FF;
-		this.blue =  (rgb >>  0) & 0x0000FF;
+		this.red   = (rgb >> 0x10) & 0x0000FF;
+		this.green = (rgb >> 0x08) & 0x0000FF;
+		this.blue  = (rgb >> 0x00) & 0x0000FF;
 	}
+
+
+	public int getRGBValue()
+	{
+		return ((this.red & 0xFF) << 0x10)
+			   | ((this.green & 0xFF) << 0x08)
+			   | ((this.blue & 0xFF) << 0x00);
+	}
+
 
 
 	public HSV toHSV()
@@ -81,6 +114,7 @@ public class RGB implements IChroma
 		return hsv;
 	}
 
+
 	@Override
 	public String toString()
 	{
@@ -96,4 +130,11 @@ public class RGB implements IChroma
 
 		return sb.toString();
 	}
+
+	/*
+	public String toHexa()
+	{
+		return String.format("0x%06X", this.getRGB() & 0xFFFFFF);
+	}
+	*/
 }

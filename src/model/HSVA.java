@@ -6,9 +6,19 @@ package model;
  */
 public class HSVA extends HSV implements IChroma
 {
+	/**
+	 * La composante transparente de la couleur.
+	 */
 	protected int alpha;
 
 
+	/**
+	 * Créé une nouvelle couleur HSVA.
+	 * @param hue La composante teinte.
+	 * @param saturation La composante saturation.
+	 * @param value La composante luminance.
+	 * @param alpha La composante transparente.
+	 */
 	public HSVA(int hue, int saturation, int value, int alpha)
 	{
 		super(hue, saturation, value);
@@ -16,6 +26,9 @@ public class HSVA extends HSV implements IChroma
 		this.alpha = alpha;
 	}
 
+	/**
+	 * Créé une nouvelle couleur HSVA (Noir).
+	 */
 	public HSVA()
 	{
 		this(0, 0, 0, 255);

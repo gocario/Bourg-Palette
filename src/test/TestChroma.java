@@ -22,5 +22,7 @@ public class TestChroma
 		chroma = new RGBA(170, 255, 170, 85);
 		System.out.println(chroma.toString());
 
+		System.out.println(((RGB) chroma).getRGBValue());
+		System.out.println(((RGBA) chroma).getRGBAValue());
 	}
 }
