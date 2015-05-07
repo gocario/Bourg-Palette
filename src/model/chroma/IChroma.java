@@ -1,4 +1,4 @@
-package model;
+package model.chroma;
 
 /**
  * @author Gocario
@@ -6,15 +6,14 @@ package model;
  */
 public interface IChroma
 {
-	/*
-	public abstract HSV getHSV();
-	public abstract HSVA getHSVA();
 	public abstract RGB getRGB();
 	public abstract RGBA getRGBA();
-	*/
+	public abstract HSV getHSV();
+	public abstract HSVA getHSVA();
 
-	public abstract int[] getHSVValue();
-	public abstract int[] getHSVAValue();
+
 	public abstract int getRGBValue();
 	public abstract int getRGBAValue();
+	public abstract int[] getHSVValue();
+	public abstract int[] getHSVAValue();
 }
