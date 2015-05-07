@@ -7,7 +7,7 @@ import model.ColorImage;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Gocario
@@ -17,9 +17,9 @@ import java.util.ArrayList;
  */
 public class ColorImageViewerExtended
 {
-	private ArrayList<ColorImage> images;
+	private List<ColorImage> images;
 
-	public ColorImageViewerExtended(ArrayList<ColorImage> images)
+	public ColorImageViewerExtended(List<ColorImage> images)
 	{
 		this.images = images;
 	}

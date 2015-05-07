@@ -21,12 +21,12 @@ public class LiquidCrystal extends AbstractAlgorithm
 	@Override
 	public void process()
 	{
-		int width = outputImage.getWidth();
-		int height = outputImage.getHeight();
+		int sizeX = outputImage.getWidth();
+		int sizeY = outputImage.getHeight();
 
-		for (int row = 0; row < height; row += 3)
+		for (int row = 0; row < sizeY; row += 3)
 		{
-			for (int col = 0; col < width; col += 3)
+			for (int col = 0; col < sizeX; col += 3)
 			{
 				Color value = inputImage.getColor(col, row);
 

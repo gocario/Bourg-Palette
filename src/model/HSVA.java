@@ -4,23 +4,24 @@ package model;
  * @author Gocario
  * @version 1.0
  */
-public class HSV implements IChroma
+public class HSVA extends HSV implements IChroma
 {
-	protected int hue;
-	protected int saturation;
-	protected int value;
+	protected int alpha;
 
-	public HSV(int hue, int saturation, int value)
+
+	public HSVA(int hue, int saturation, int value, int alpha)
 	{
-		this.hue = hue;
-		this.saturation = saturation;
-		this.value = value;
+		super(hue, saturation, value);
+
+		this.alpha = alpha;
 	}
 
-	public HSV()
+	public HSVA()
 	{
-		this(0, 0, 0);
+		this(0, 0, 0, 255);
 	}
+
+
 
 	@Override
 	public String toString()

@@ -4,11 +4,11 @@ package model;
  * @author Gocario
  * @version 1.0
  */
-public class RGB
+public class RGB implements IChroma
 {
-	private int red;
-	private int green;
-	private int blue;
+	protected int red;
+	protected int green;
+	protected int blue;
 
 	public RGB(int red, int green, int blue)
 	{
