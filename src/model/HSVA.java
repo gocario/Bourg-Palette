@@ -31,7 +31,7 @@ public class HSVA extends HSV implements IChroma
 	 */
 	public HSVA()
 	{
-		this(0, 0, 0, 255);
+		this(0, 0, 0, 100);
 	}
 
 
@@ -41,12 +41,14 @@ public class HSVA extends HSV implements IChroma
 	{
 		StringBuilder sb = new StringBuilder();
 
-		sb.append("[HSV:");
+		sb.append("[HSVA:");
 		sb.append(this.hue);
 		sb.append("|");
 		sb.append(this.saturation);
 		sb.append("|");
 		sb.append(this.value);
+		sb.append("|");
+		sb.append(this.alpha);
 		sb.append("]");
 
 		return sb.toString();

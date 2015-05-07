@@ -1,8 +1,9 @@
 package test;
 
-import model.IChroma;
-import model.RGB;
-import model.RGBA;
+import model.*;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * @author Gocario
@@ -22,7 +23,16 @@ public class TestChroma
 		chroma = new RGBA(170, 255, 170, 85);
 		System.out.println(chroma.toString());
 
-		System.out.println(((RGB) chroma).getRGBValue());
-		System.out.println(((RGBA) chroma).getRGBAValue());
+		System.out.println(chroma.getRGBValue());
+		System.out.println(chroma.getRGBAValue());
+
+
+		chroma = new HSV(32, 100, 100);
+		System.out.println(chroma.toString());
+
+		chroma = new HSVA(32, 100, 100, 100);
+		System.out.println(chroma.toString());
+
+		System.out.println(StringManipulator.join(chroma.getHSVAValue(), ";"));
 	}
 }

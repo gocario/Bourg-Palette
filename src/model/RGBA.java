@@ -48,6 +48,11 @@ public class RGBA extends RGB implements IChroma
 	}
 
 
+	/**
+	 * Retourne la valeur chromatique RGBA.
+	 * @return La valeur chromatique RGBA.
+	 */
+	@Override
 	public int getRGBAValue()
 	{
 		return ((this.alpha & 0xFF) << 0x18)

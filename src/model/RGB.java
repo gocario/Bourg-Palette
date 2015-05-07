@@ -1,5 +1,7 @@
 package model;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * @author Gocario
  * @version 1.0
@@ -56,12 +58,51 @@ public class RGB implements IChroma
 	}
 
 
+
+
+	/**
+	 * Retourne la valeur chromatique RGB.
+	 * @return La valeur chromatique RGB
+	 */
+	@Override
 	public int getRGBValue()
 	{
 		return ((this.red & 0xFF) << 0x10)
 			   | ((this.green & 0xFF) << 0x08)
 			   | ((this.blue & 0xFF) << 0x00);
 	}
+
+	/**
+	 * Retourne la valeur chromatique RGBA.
+	 * @return La valeur chromatique RGBA.
+	 */
+	@Override
+	public int getRGBAValue()
+	{
+		return ((0xFF) << 0x18)
+			   | this.getRGBValue();
+	}
+
+	/**
+	 * Retourne les valeurs chromatique HSV.
+	 * @return Les valeurs chromatique HSV.
+	 */
+	@Override
+	public int[] getHSVValue()
+	{
+		throw new NotImplementedException();
+	}
+
+	/**
+	 * Retourne les valeurs chromatique HSVA.
+	 * @return Les valeurs chromatique HSVA.
+	 */
+	@Override
+	public int[] getHSVAValue()
+	{
+		throw new NotImplementedException();
+	}
+
 
 
 
