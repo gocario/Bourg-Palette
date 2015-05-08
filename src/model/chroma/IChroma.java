@@ -14,6 +14,6 @@ public interface IChroma
 
 	public abstract int getRGBValue();
 	public abstract int getRGBAValue();
-	public abstract int[] getHSVValue();
-	public abstract int[] getHSVAValue();
+	public abstract float[] getHSVValue();
+	public abstract float[] getHSVAValue();
 }

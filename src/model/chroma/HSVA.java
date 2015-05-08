@@ -8,21 +8,23 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class HSVA extends HSV implements IChroma
 {
+	public static final int ALPHA_MAX_VALUE = 100;
+
 	/**
 	 * La composante transparente de la couleur.
 	 */
-	protected int alpha;
+	protected float alpha;
 
 
 	/**
-	 * Créé une nouvelle couleur HSVA.
+	 * Crï¿½ï¿½ une nouvelle couleur HSVA.
 	 *
 	 * @param hue        La composante teinte.
 	 * @param saturation La composante saturation.
 	 * @param value      La composante luminance.
 	 * @param alpha      La composante transparente.
 	 */
-	public HSVA(int hue, int saturation, int value, int alpha)
+	public HSVA(float hue, float saturation, float value, float alpha)
 	{
 		super(hue, saturation, value);
 
@@ -30,7 +32,7 @@ public class HSVA extends HSV implements IChroma
 	}
 
 	/**
-	 * Créé une nouvelle couleur HSV.
+	 * Crï¿½ï¿½ une nouvelle couleur HSV.
 	 *
 	 * @param hue        La composante teinte.
 	 * @param saturation La composante saturation.
@@ -42,11 +44,11 @@ public class HSVA extends HSV implements IChroma
 	}
 
 	/**
-	 * Créé une nouvelle couleur HSVA (Noir).
+	 * Crï¿½ï¿½ une nouvelle couleur HSVA (Noir).
 	 */
 	public HSVA()
 	{
-		this(0, 0, 0, HSVA.ALPHA_MAX_VALUE);
+		this(0.0f, 0.0f, 0.0f, HSVA.ALPHA_MAX_VALUE);
 	}
 
 
@@ -59,7 +61,10 @@ public class HSVA extends HSV implements IChroma
 	public RGBA getRGBA()
 	{
 		RGB rgb = this.getRGB();
-		RGBA rgba = new RGBA(rgb.red, rgb.green, rgb.blue, this.alpha * RGBA.ALPHA_MAX_VALUE / HSVA.ALPHA_MAX_VALUE);
+		RGBA rgba = rgb.getRGBA();
+
+		rgba.alpha = (int) (this.alpha * RGBA.ALPHA_MAX_VALUE / HSVA.ALPHA_MAX_VALUE);
+
 		return rgba;
 	}
 
@@ -82,9 +87,9 @@ public class HSVA extends HSV implements IChroma
 	 * @return Les valeurs chromatique HSVA.
 	 */
 	@Override
-	public int[] getHSVAValue()
+	public float[] getHSVAValue()
 	{
-		return new int[]{this.hue, this.saturation, this.value, this.alpha};
+		return new float[]{this.hue, this.saturation, this.value, this.alpha};
 	}
 
 

@@ -8,33 +8,30 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class HSV implements IChroma
 {
-	public static final int ALPHA_MAX_VALUE = 100;
-
-
 	/**
 	 * La composante teinte de la couleur.
 	 */
-	protected int hue;
+	protected float hue;
 
 	/**
 	 * La composante saturation de la couleur.
 	 */
-	protected int saturation;
+	protected float saturation;
 
 	/**
 	 * La composante luminance de la couleur.
 	 */
-	protected int value;
+	protected float value;
 
 
 	/**
-	 * Créé une nouvelle couleur HSV.
+	 * CrÃ©Ã© une nouvelle couleur HSV.
 	 *
 	 * @param hue        La composante teinte.
 	 * @param saturation La composante saturation.
 	 * @param value      La composante luminance.
 	 */
-	public HSV(int hue, int saturation, int value)
+	public HSV(float hue, float saturation, float value)
 	{
 		this.hue = hue;
 		this.saturation = saturation;
@@ -42,11 +39,11 @@ public class HSV implements IChroma
 	}
 
 	/**
-	 * Créé une nouvelle couleur HSV (Noir).
+	 * CrÃ©Ã© une nouvelle couleur HSV (Noir).
 	 */
 	public HSV()
 	{
-		this(0, 0, 0);
+		this(0.0f, 0.0f, 0.0f);
 	}
 
 
@@ -58,6 +55,18 @@ public class HSV implements IChroma
 	@Override
 	public RGB getRGB()
 	{
+		int red = 0;
+		int green = 0;
+		int blue = 0;
+
+
+		float c = saturation * value;
+
+		float x = c * (1 - Math.abs((hue / 60) % 2 - 1));
+
+
+
+
 		throw new NotImplementedException();
 	}
 
@@ -93,7 +102,7 @@ public class HSV implements IChroma
 	@Override
 	public HSVA getHSVA()
 	{
-		return new HSVA(hue, saturation, value, RGBA.ALPHA_MAX_VALUE);
+		return new HSVA(hue, saturation, value, HSVA.ALPHA_MAX_VALUE);
 	}
 
 	/**
@@ -124,9 +133,9 @@ public class HSV implements IChroma
 	 * @return Les valeurs chromatique HSV.
 	 */
 	@Override
-	public int[] getHSVValue()
+	public float[] getHSVValue()
 	{
-		return new int[]{this.hue, this.saturation, this.value};
+		return new float[]{this.hue, this.saturation, this.value};
 	}
 
 	/**
@@ -135,9 +144,9 @@ public class HSV implements IChroma
 	 * @return Les valeurs chromatique HSVA.
 	 */
 	@Override
-	public int[] getHSVAValue()
+	public float[] getHSVAValue()
 	{
-		return new int[]{this.hue, this.saturation, this.value, HSVA.ALPHA_MAX_VALUE};
+		return new float[]{this.hue, this.saturation, this.value, HSVA.ALPHA_MAX_VALUE};
 	}
 
 

@@ -12,6 +12,9 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class RGB implements IChroma
 {
+	public final static int MAX_VALUE = 255;
+
+
 	/**
 	 * La composante rouge de la couleur.
 	 */
@@ -28,7 +31,7 @@ public class RGB implements IChroma
 	protected int blue;
 
 	/**
-	 * Créé une nouvelle couleur RGB.
+	 * Crï¿½ï¿½ une nouvelle couleur RGB.
 	 *
 	 * @param red   La composante rouge.
 	 * @param green La composante verte.
@@ -42,7 +45,7 @@ public class RGB implements IChroma
 	}
 
 	/**
-	 * Créé une nouvelle couleur RGB (Noir).
+	 * Crï¿½ï¿½ une nouvelle couleur RGB (Noir).
 	 */
 	public RGB()
 	{
@@ -50,7 +53,7 @@ public class RGB implements IChroma
 	}
 
 	/**
-	 * Créé une nouvelle couleur RGB.
+	 * Crï¿½ï¿½ une nouvelle couleur RGB.
 	 *
 	 * @param rgb Les composantes de couleur.
 	 */
@@ -94,34 +97,37 @@ public class RGB implements IChroma
 	@Override
 	public HSV getHSV()
 	{
-		float red = this.red / 255;
-		float green = this.green / 255;
-		float blue = this.blue / 255;
+		float red = ((float) this.red) / RGB.MAX_VALUE;
+		float green = ((float) this.green) / RGB.MAX_VALUE;
+		float blue = ((float) this.blue) / RGB.MAX_VALUE;
 
 
-		Float max = (Float) model.Math.max(red, green, blue);
+		Float max = (Float) Math.max(red, green, blue);
 		Float min = (Float) Math.min(red, green, blue);
 		Float delta = max - min;
 
+		System.out.println(min);
+		System.out.println(max);
+		System.out.println(delta);
 
-		int hue = 0;
-		int saturation = 0;
-		int value = 0;
+		float hue = 0;
+		float saturation = 0;
+		float value = max;
 
 		/** HUE **/
 		if (max == red)
 		{
-			hue = (int) ((green - blue) / delta);
+			hue = ((green - blue) / delta);
 			hue = hue % 6;
 		}
 		else if (max == green)
 		{
-			hue = (int) ((blue - red) / delta);
+			hue = ((blue - red) / delta);
 			hue = hue + 2;
 		}
 		else if (max == blue)
 		{
-			hue = (int) ((red - green) / delta);
+			hue = ((red - green) / delta);
 			hue = hue + 2;
 		}
 
@@ -130,14 +136,12 @@ public class RGB implements IChroma
 		/** SATURATION **/
 		if (max != 0)
 		{
-			saturation = (int) (delta / max * 100);
+			saturation = (delta / max);
 		}
-
-		/** VALUE **/
-		value = (int) (max * 100);
 
 
 		HSV hsv = new HSV(hue, saturation, value);
+
 		return hsv;
 	}
 
@@ -150,7 +154,7 @@ public class RGB implements IChroma
 	public HSVA getHSVA()
 	{
 		HSV hsv = this.getHSV();
-		HSVA hsva = new HSVA(hsv.hue, hsv.saturation, hsv.value, HSVA.ALPHA_MAX_VALUE);
+		HSVA hsva = hsv.getHSVA();
 		return hsva;
 	}
 
@@ -186,7 +190,7 @@ public class RGB implements IChroma
 	 * @return Les valeurs chromatique HSV.
 	 */
 	@Override
-	public int[] getHSVValue()
+	public float[] getHSVValue()
 	{
 		return this.getHSV().getHSVValue();
 	}
@@ -197,7 +201,7 @@ public class RGB implements IChroma
 	 * @return Les valeurs chromatique HSVA.
 	 */
 	@Override
-	public int[] getHSVAValue()
+	public float[] getHSVAValue()
 	{
 		return this.getHSVA().getHSVAValue();
 	}

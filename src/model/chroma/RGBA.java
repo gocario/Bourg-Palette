@@ -19,7 +19,7 @@ public class RGBA extends RGB implements IChroma
 	protected int alpha;
 
 	/**
-	 * Créé une nouvelle couleur RGBA.
+	 * Crï¿½ï¿½ une nouvelle couleur RGBA.
 	 *
 	 * @param red   La composante rouge.
 	 * @param green La composante verte.
@@ -34,7 +34,7 @@ public class RGBA extends RGB implements IChroma
 	}
 
 	/**
-	 * Créé une nouvelle couleur RGBA.
+	 * Crï¿½ï¿½ une nouvelle couleur RGBA.
 	 *
 	 * @param red   La composante rouge.
 	 * @param green La composante verte.
@@ -46,7 +46,7 @@ public class RGBA extends RGB implements IChroma
 	}
 
 	/**
-	 * Créé une nouvelle couleur RGBA (Noir).
+	 * Crï¿½ï¿½ une nouvelle couleur RGBA (Noir).
 	 */
 	public RGBA()
 	{
@@ -54,7 +54,7 @@ public class RGBA extends RGB implements IChroma
 	}
 
 	/**
-	 * Créé une nouvelle couleur RGBA.
+	 * Crï¿½ï¿½ une nouvelle couleur RGBA.
 	 *
 	 * @param rgba Les composantes de couleur.
 	 */
@@ -90,7 +90,10 @@ public class RGBA extends RGB implements IChroma
 	public HSVA getHSVA()
 	{
 		HSV hsv = this.getHSV();
-		HSVA hsva = new HSVA(hsv.hue, hsv.saturation, hsv.value, this.alpha * HSVA.ALPHA_MAX_VALUE / RGBA.ALPHA_MAX_VALUE);
+		HSVA hsva = hsv.getHSVA();
+
+		hsva.alpha = this.alpha * HSVA.ALPHA_MAX_VALUE / RGBA.ALPHA_MAX_VALUE;
+
 		return hsva;
 	}
 
@@ -115,7 +118,7 @@ public class RGBA extends RGB implements IChroma
 		{
 			RGBA that = ((IChroma) obj).getRGBA();
 
-			return that.red == this.red && that.green == this.green && that.blue == this.blue && that.alpha == this.alpha;
+			return (that.red == this.red && that.green == this.green && that.blue == this.blue && that.alpha == this.alpha);
 		}
 
 		return false;

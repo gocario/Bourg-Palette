@@ -15,30 +15,31 @@ public class TestChroma
 
 
 
-		chroma = new RGB(170, 255, 170);
-		toStrCls(chroma);
+		// chroma = new RGB(170, 255, 170);
+		// toStrCls(chroma);
 
-		chroma = chroma.getRGBA();
-		toStrCls(chroma);
+		// chroma = chroma.getRGBA();
+		// toStrCls(chroma);
 
-		chroma = chroma.getRGB();
-		toStrCls(chroma);
+		// chroma = chroma.getRGB();
+		// toStrCls(chroma);
 
 
 		chroma = new RGBA(170, 255, 170, 85);
 		toStrCls(chroma);
 
-
-		chroma = chroma.getHSVA();
+		chroma = chroma.getHSV();
 		toStrCls(chroma);
 
+		// chroma = chroma.getRGBA();
+		// toStrCls(chroma);
 
-		chroma = new HSV(32, 100, 100);
-		toStrCls(chroma);
 
-		chroma = new HSVA(32, 100, 100, 50);
-		toStrCls(chroma);
+		// chroma = new HSV(32, 100, 100);
+		// toStrCls(chroma);
 
+		// chroma = new HSVA(32, 100, 100, 50);
+		// toStrCls(chroma);
 
 	}
 
