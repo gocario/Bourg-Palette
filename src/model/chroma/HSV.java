@@ -55,19 +55,64 @@ public class HSV implements IChroma
 	@Override
 	public RGB getRGB()
 	{
-		int red = 0;
-		int green = 0;
-		int blue = 0;
+		float red = 0;
+		float green = 0;
+		float blue = 0;
+
+		if (saturation == 0)
+		{
+			red = value;
+			green = value;
+			blue = value;
+		}
+		else
+		{
+			int hi = (int) (Math.abs(hue / 60) % 6);
+			float f = hue / 60 - hi;
+
+			float l = value * (1 - saturation);
+			float m = value * (1 - f * saturation);
+			float n = value * (1 - (1 - f) * saturation);
+
+			switch (hi)
+			{
+				case 0:
+					red = value;
+					green = n;
+					blue = l;
+					break;
+				case 1:
+					red = m;
+					green = value;
+					blue = l;
+					break;
+				case 2:
+					red = l;
+					green = value;
+					blue = n;
+					break;
+				case 3:
+					red = l;
+					green = m;
+					blue = value;
+					break;
+				case 4:
+					red = n;
+					green = l;
+					blue = value;
+					break;
+				case 5:
+					red = value;
+					green = l;
+					blue = m;
+					break;
+			}
+		}
 
 
-		float c = saturation * value;
+		RGB rgb = new RGB((int) (red * RGB.MAX_VALUE), (int) (green * RGB.MAX_VALUE), (int) (blue * RGB.MAX_VALUE));
 
-		float x = c * (1 - Math.abs((hue / 60) % 2 - 1));
-
-
-
-
-		throw new NotImplementedException();
+		return rgb;
 	}
 
 	/**

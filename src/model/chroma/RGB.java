@@ -106,9 +106,6 @@ public class RGB implements IChroma
 		Float min = (Float) Math.min(red, green, blue);
 		Float delta = max - min;
 
-		System.out.println(min);
-		System.out.println(max);
-		System.out.println(delta);
 
 		float hue = 0;
 		float saturation = 0;
