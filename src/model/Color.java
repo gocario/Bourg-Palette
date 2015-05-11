@@ -24,6 +24,15 @@ public class Color extends RGBA
 		super(rgba);
 	}
 
+
+	public void divideColor(int value)
+	{
+		this.red /= value;
+		this.green /= value;
+		this.blue /= value;
+	}
+
+
 	public String toHexa()
 	{
 		return String.format("0x%08X", this.getRGBAValue() & 0xFFFFFFFF);

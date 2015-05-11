@@ -13,12 +13,11 @@ import java.util.List;
  * @author Gocario
  * @version 1.0
  */
-public class TestSimilarity
+public class TestBlend
 {
 	public static void main(String[] args)
 	{
 		args = new String[] {"res/poke/registeel.png", "res/poke/regicesteel.png"};
-		args = new String[] {"res/poke/lati@s.png", "res/poke/lati@s_contour.png"};
 
 		if (args.length < 2)
 		{
