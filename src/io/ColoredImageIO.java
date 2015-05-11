@@ -61,7 +61,7 @@ public class ColoredImageIO
 		for (int i = 0; i < dataBuffer.getSize(); i++)
 		{
 			Color value = colorImage.getOffset(i);
-			dataBuffer.setElem(i, value.getRGB());
+			dataBuffer.setElem(i, value.getRGBValue());
 		}
 		return bufferedImage;
 	}

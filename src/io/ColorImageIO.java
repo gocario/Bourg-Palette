@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import model.Color;
 import model.ColorImage;
+import model.chroma.RGBA;
 
 /**
  * @author Gocario
@@ -56,17 +57,17 @@ public class ColorImageIO
 		int width = colorImage.getWidth();
 		int height = colorImage.getHeight();
 
-		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
 		for (int row = 0; row < height; row++)
 		{
 			for (int col = 0; col < width; col++)
 			{
 				Color color = colorImage.getColor(col, row);
+				// System.out.println(color.toHexa());
 
-				bufferedImage.setRGB(col, row, color.getRGB());
 
-				System.out.println(color.toHexa());
+				bufferedImage.setRGB(col, row, color.getRGBAValue());
 			}
 		}
 
@@ -87,10 +88,10 @@ public class ColorImageIO
 			for (int col = 0; col < width; col++)
 			{
 				Color color = new Color(bufferedImage.getRGB(col, row));
+				System.out.println(color.toHexa());
+
 
 				colorImage.setColor(col, row, color);
-
-				System.out.println(color.toHexa());
 			}
 		}
 

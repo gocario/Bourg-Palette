@@ -9,8 +9,8 @@ import java.util.Iterator;
  */
 public class Spectrum
 {
-	public static final Spectrum REAL_GB = new Spectrum(0x70E030, 0x00B000, 0x006818, 0x005020);
-	public static final Spectrum IceBlue = new Spectrum(0x0026FF, 0x0094FF, 0x00FFFF);
+	public static final Spectrum REAL_GB = new Spectrum((0xFF70E030), (0xFF00B000), (0xFF006818), (0xFF005020));
+	public static final Spectrum IceBlue = new Spectrum((0xFF0026FF), (0xFF0094FF), (0xFF00FFFF));
 
 
 	private String name = "SPECTRUM_DEFAULT_NAME";

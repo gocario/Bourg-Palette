@@ -46,14 +46,6 @@ public class RGBA extends RGB implements IChroma
 	}
 
 	/**
-	 * Cr�� une nouvelle couleur RGBA (Noir).
-	 */
-	public RGBA()
-	{
-		this(0, 0, 0, RGBA.ALPHA_MAX_VALUE);
-	}
-
-	/**
 	 * Cr�� une nouvelle couleur RGBA.
 	 *
 	 * @param rgba Les composantes de couleur.
@@ -68,6 +60,23 @@ public class RGBA extends RGB implements IChroma
 		this.blue = (rgba >> 0x00) & 0x000000FF;
 	}
 
+	/**
+	 * Cr�� une nouvelle couleur RGBA (Noir).
+	 */
+	public RGBA()
+	{
+		this(0, 0, 0, RGBA.ALPHA_MAX_VALUE);
+	}
+
+
+	/**
+	 * Retourne la composante transparente.
+	 * @return La composante de transparence.
+	 */
+	public int getAlpha()
+	{
+		return alpha;
+	}
 
 	/**
 	 * Convertit la couleur en une couleur RGBA.

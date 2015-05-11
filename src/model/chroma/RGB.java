@@ -45,14 +45,6 @@ public class RGB implements IChroma
 	}
 
 	/**
-	 * Cr�� une nouvelle couleur RGB (Noir).
-	 */
-	public RGB()
-	{
-		this(0, 0, 0);
-	}
-
-	/**
 	 * Cr�� une nouvelle couleur RGB.
 	 *
 	 * @param rgb Les composantes de couleur.
@@ -64,6 +56,41 @@ public class RGB implements IChroma
 		this.red = (rgb >> 0x10) & 0x0000FF;
 		this.green = (rgb >> 0x08) & 0x0000FF;
 		this.blue = (rgb >> 0x00) & 0x0000FF;
+	}
+
+	/**
+	 * Cr�� une nouvelle couleur RGB (Noir).
+	 */
+	public RGB()
+	{
+		this(0, 0, 0);
+	}
+
+	/**
+	 * Retourne la composante rouge.
+	 * @return La composante de couleur rouge.
+	 */
+	public int getRed()
+	{
+		return red;
+	}
+
+	/**
+	 * Retourne la composante verte.
+	 * @return La composante de couleur verte.
+	 */
+	public int getGreen()
+	{
+		return green;
+	}
+
+	/**
+	 * Retourne la composante bleue.
+	 * @return La composante de couleur bleue.
+	 */
+	public int getBlue()
+	{
+		return blue;
 	}
 
 
