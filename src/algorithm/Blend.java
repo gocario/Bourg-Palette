@@ -19,7 +19,6 @@ public class Blend extends TupleAbstractAlgorithm implements IComputeWindow<Colo
 	@Override
 	public Color computeWindow(int col, int row)
 	{
-		Color color = null;
 		Color cA;
 		Color cB;
 
@@ -37,10 +36,10 @@ public class Blend extends TupleAbstractAlgorithm implements IComputeWindow<Colo
 			float vGreen = (cA.getGreen()*aA + cB.getGreen()*aB * (1-aA)) / a0;
 			float vBlue = (cA.getBlue()*aA + cB.getBlue()*aB * (1-aA)) / a0;
 
-			cA = cB;
+			cA = new Color((int) vRed, (int) vGreen, (int) vBlue);
 		}
 
-		return color;
+		return cA;
 	}
 
 

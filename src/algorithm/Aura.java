@@ -11,7 +11,7 @@ import model.Spectrum;
  */
 public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 {
-	private static final Color COLOR_BLANK = Color.Green;
+	private static final Color COLOR_BLANK = Color.TransparentBlack;
 
 
 	private Spectrum spectrum;

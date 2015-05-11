@@ -17,7 +17,7 @@ public class TestAura
 {
 	public static void main(String[] args)
 	{
-		args = new String[] {"res/poke/lati@s.png"};
+		args = new String[] {"res/poke/regicesteel.png"};
 
 		if (args.length != 1)
 		{
@@ -42,7 +42,7 @@ public class TestAura
 		images.add(algo.getResult());
 
 
-		ColorImageIO.writeFile(algo.getResult(), "res/poke/lati@s_contour.png");
+		ColorImageIO.writeFile(algo.getResult(), "res/latiuis_contour.png");
 
 		ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
 		viewer.show();

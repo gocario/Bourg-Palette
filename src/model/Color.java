@@ -123,4 +123,8 @@ public class Color extends RGBA
 	// public static final BlueGreen = new Color(0xFF0D98BA);
 	// public static final BrightGreen = new Color(0xFF66FF00);
 	// public static final BrightTurquoise = new Color(0xFF08E8DE);
+
+
+	public static final Color TransparentBlack = new Color(0x00000000);
+	public static final Color TransparentWhite = new Color(0x00FFFFFF);
 }
