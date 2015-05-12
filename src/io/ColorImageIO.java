@@ -1,14 +1,12 @@
 package io;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBuffer;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import model.Color;
 import model.ColorImage;
-import model.chroma.RGBA;
 
 /**
  * @author Gocario
@@ -67,7 +65,7 @@ public class ColorImageIO
 				// System.out.println(color.toHexa());
 
 
-				bufferedImage.setRGB(col, row, color.getRGBAValue());
+				bufferedImage.setRGB(col, row, color.getARGB());
 			}
 		}
 
