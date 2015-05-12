@@ -3,7 +3,7 @@ package model;
 
 /**
  * @author Gocario
- * @version 1.0
+ * @version 1.1
  */
 public class Color extends ColorARGB
 {
@@ -22,6 +22,10 @@ public class Color extends ColorARGB
 		super(rgba);
 	}
 
+	public Color(int argb, ColorType colorType)
+	{
+		super(argb, colorType);
+	}
 
 	public String toHexa()
 	{
