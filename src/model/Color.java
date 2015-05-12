@@ -1,13 +1,11 @@
 package model;
 
-import model.chroma.RGB;
-import model.chroma.RGBA;
 
 /**
  * @author Gocario
  * @version 1.0
  */
-public class Color extends RGBA
+public class Color extends ColorARGB
 {
 	public Color(int red, int green, int blue, int alpha)
 	{
@@ -25,17 +23,9 @@ public class Color extends RGBA
 	}
 
 
-	public void divideColor(int value)
-	{
-		this.red /= value;
-		this.green /= value;
-		this.blue /= value;
-	}
-
-
 	public String toHexa()
 	{
-		return String.format("0x%08X", this.getRGBAValue() & 0xFFFFFFFF);
+		return String.format("0x%08X", this.argb & 0xFFFFFFFF);
 	}
 
 	@Override
