@@ -29,3 +29,43 @@
 			}
 		}
 		
+
+
+
+
+
+
+
+
+
+
+
+// if (obj.GetType() == typeof(WhatIWant))
+
+
+		public override bool equals(Object obj)
+		{
+			if (obj is Foo)
+			{
+				Foo that = (Foo) obj;
+				return that.bar == this.bar;
+
+				return this.bar == that.bar
+			}
+			return false;
+		}
+		
+// return super.equals(obj)
+
+
+
+		@Override
+		public boolean equals(Object obj)
+		{
+			if (obj instanceof Foo)
+			{
+				Foo that = (Foo) obj;
+				return that.bar == this.bar;
+			}
+			return false;
+		}

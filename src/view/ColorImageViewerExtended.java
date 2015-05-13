@@ -27,7 +27,6 @@ public class ColorImageViewerExtended
 	public void show()
 	{
 		JFrame frame = new JFrame("ColorImage Viewer - Extended Edition Gold 2008 Collector");
-		// frame.setLayout();
 
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout());
