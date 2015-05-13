@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Similarity extends TupleAbstractAlgorithm implements IComputeWindow<Color>
 {
-	private static final Color BLANK_COLOR = Color.Green;
+	private static final Color BLANK_COLOR = Color.TransparentWhite;
 
 
 	public Similarity(List<ColorImage> inputImages) { super(inputImages); }

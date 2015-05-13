@@ -11,7 +11,7 @@ import model.Spectrum;
  */
 public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 {
-	private static final Color COLOR_BLANK = Color.TransparentBlack;
+	private static final Color COLOR_BLANK = Color.TransparentWhite;
 
 
 	private Spectrum spectrum;
@@ -34,16 +34,19 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 	{
 		Color value = COLOR_BLANK;
 
-		if (inputImage.getColor(col, row).equals(COLOR_BLANK))
+		if (!inputImage.isColorBorder(col, row))
 		{
-			if (!inputImage.getColor(col, row - 1).equals(COLOR_BLANK) ||
-				!inputImage.getColor(col - 1, row).equals(COLOR_BLANK) ||
-				!inputImage.getColor(col + 1, row).equals(COLOR_BLANK) ||
-				!inputImage.getColor(col, row + 1).equals(COLOR_BLANK))
+			if (inputImage.getColor(col, row).equals(COLOR_BLANK))
 			{
-				value = spectrum.get(0);
+				if (!inputImage.getColor(col, row - 1).equals(COLOR_BLANK) ||
+					!inputImage.getColor(col - 1, row).equals(COLOR_BLANK) ||
+					!inputImage.getColor(col + 1, row).equals(COLOR_BLANK) ||
+					!inputImage.getColor(col, row + 1).equals(COLOR_BLANK))
+				{
+					value = spectrum.get(0);
+				}
 			}
-		}
+	}
 
 		return value;
 	}

@@ -16,31 +16,64 @@ public class Blend extends TupleAbstractAlgorithm implements IComputeWindow<Colo
 		super(inputImages);
 	}
 
+
+
 	@Override
 	public Color computeWindow(int col, int row)
 	{
-		Color cA;
-		Color cB;
+		/**
+		 * b -> Background
+		 * f -> Foreground
+		 * c -> Composite
+		 */
 
-		cA = inputImages.get(0).getColor(col, row);
+
+		Color bColor, fColor, cColor;
+
+		cColor = bColor = inputImages.get(0).getColor(col, row);
 		for (int i = 1; i < inputImages.size(); i++)
 		{
-			cB = inputImages.get(i).getColor(col, row);
+			fColor = inputImages.get(i).getColor(col, row);
 
-			float aA = cA.getAlpha();
-			float aB = cB.getAlpha();
+			if (fColor.isOpaque())
+			{
+				bColor = fColor;
+			}
+			else if (fColor.isTranslucent())
+			{
+				float fRed = ((float) fColor.getRed()) / Color.COLOR_MAX_VALUE;
+				float fGreen = ((float) fColor.getGreen()) / Color.COLOR_MAX_VALUE;
+				float fBlue = ((float) fColor.getBlue()) / Color.COLOR_MAX_VALUE;
+				float fAlpha = ((float) fColor.getAlpha()) / Color.ALPHA_MAX_VALUE;
+				float bRed = ((float) bColor.getRed()) / Color.COLOR_MAX_VALUE;
+				float bGreen = ((float) bColor.getGreen()) / Color.COLOR_MAX_VALUE;
+				float bBlue = ((float) bColor.getBlue()) / Color.COLOR_MAX_VALUE;
+				float bAlpha = ((float) bColor.getAlpha()) / Color.ALPHA_MAX_VALUE;
 
-			float a0 = aA + aB * (1 - aA);
+				float cRed =  fRed * fAlpha + (1 - fAlpha) * bRed;
+				float cGreen = fGreen * fAlpha + (1 - fAlpha) * bGreen;
+				float cBlue = fBlue * fAlpha + (1 - fAlpha) * bBlue;
+				float cAlpha = (float) (bAlpha + (1.0 - bAlpha) * fAlpha);
 
-			float vRed = (cA.getRed()*aA + cB.getRed()*aB * (1-aA)) / a0;
-			float vGreen = (cA.getGreen()*aA + cB.getGreen()*aB * (1-aA)) / a0;
-			float vBlue = (cA.getBlue()*aA + cB.getBlue()*aB * (1-aA)) / a0;
 
-			cA = new Color((int) vRed, (int) vGreen, (int) vBlue);
+				cColor = new Color(
+						(int) (cRed * Color.COLOR_MAX_VALUE),
+						(int) (cGreen * Color.COLOR_MAX_VALUE),
+						(int) (cBlue * Color.COLOR_MAX_VALUE),
+						(int) (cAlpha * Color.ALPHA_MAX_VALUE));
+
+				System.out.println(cColor.toHexa());
+			}
+			else
+			{
+				cColor = bColor;
+			}
 		}
 
-		return cA;
+
+		return cColor;
 	}
+
 
 
 	@Override
@@ -48,7 +81,6 @@ public class Blend extends TupleAbstractAlgorithm implements IComputeWindow<Colo
 	{
 		int height = this.height;
 		int width = this.width;
-
 
 		for (int row = 0; row < height; row++)
 		{

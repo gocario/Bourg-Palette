@@ -86,7 +86,7 @@ public class ColorImageIO
 			for (int col = 0; col < width; col++)
 			{
 				Color color = new Color(bufferedImage.getRGB(col, row));
-				System.out.println(color.toHexa());
+				// System.out.println(color.toHexa());
 
 
 				colorImage.setColor(col, row, color);

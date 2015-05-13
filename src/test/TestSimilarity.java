@@ -18,7 +18,7 @@ public class TestSimilarity
 	public static void main(String[] args)
 	{
 		args = new String[] {"res/poke/registeel.png", "res/poke/regicesteel.png"};
-		args = new String[] {"res/poke/lati@s.png", "res/poke/lati@s_contour.png"};
+		args = new String[] {"res/poke/lati@s.png", "res/poke/latiuis.png", "res/poke/lati@s_cont@ur.png"};
 
 		if (args.length < 2)
 		{

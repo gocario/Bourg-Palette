@@ -17,7 +17,8 @@ public class TestAura
 {
 	public static void main(String[] args)
 	{
-		args = new String[] {"res/poke/regicesteel.png"};
+		args = new String[] {"res/poke/lati@s.png"};
+		args = new String[] {"res/poke/umbreon.png"};
 
 		if (args.length != 1)
 		{
@@ -37,12 +38,12 @@ public class TestAura
 
 		images.add(inputImage);
 
-		algo = new Aura(inputImage, Spectrum.IceBlue);
+		algo = new Aura(inputImage, Spectrum.UmbreonYellow);
 		algo.process();
 		images.add(algo.getResult());
 
 
-		ColorImageIO.writeFile(algo.getResult(), "res/latiuis_contour.png");
+		ColorImageIO.writeFile(algo.getResult(), "res/poke/umbreon_aura.png");
 
 		ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
 		viewer.show();

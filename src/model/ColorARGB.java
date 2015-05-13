@@ -235,6 +235,33 @@ public class ColorARGB
 		return this.getAlpha() == ALPHA_MIN_VALUE;
 	}
 
+	/**
+	 * Retourne vrai si le composante de transparence est complète.
+	 *
+	 * @return Vrai si la couleur est opaque.
+	 *
+	 * @see #getAlpha
+	 * @see #ALPHA_MAX_VALUE
+	 */
+	public boolean isOpaque()
+	{
+		return this.getAlpha() == ALPHA_MAX_VALUE;
+	}
+
+	/**
+	 * Retourne vrai si le composante de transparence n'est ni nulle ni complète.
+	 *
+	 * @return Vrai si la couleur est translucide.
+	 *
+	 * @see #getAlpha
+	 * @see #isTransparent
+	 * @see #isOpaque
+	 */
+	public boolean isTranslucent()
+	{
+		return !isTransparent() && !isOpaque();
+	}
+
 
 	/**
 	 * Retourne vrai si :

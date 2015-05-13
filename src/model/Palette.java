@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author Gocario
@@ -28,12 +29,13 @@ public class Palette
 
 
 	private String name = "PALETTE_DEFAULT_NAME";
-	private final ArrayList<Spectrum> spectrums = new ArrayList<Spectrum>();
+	private final List<Spectrum> spectrums = new ArrayList<Spectrum>();
 
-	public Palette(ArrayList<Spectrum> spectrums)
+	public Palette(List<Spectrum> spectrums)
 	{
 		this.spectrums.addAll(spectrums);
 	}
+
 	public Palette(Spectrum... spectrums)
 	{
 		for (int i = 0; i < spectrums.length; i++)
@@ -42,6 +44,19 @@ public class Palette
 		}
 	}
 
+	public Palette(String name, List<Spectrum> spectrums)
+	{
+		this(spectrums);
+
+		this.name = name;
+	}
+
+	public Palette(String name, Spectrum... spectrums)
+	{
+		this(spectrums);
+
+		this.name = name;
+	}
 
 	public int size()
 	{

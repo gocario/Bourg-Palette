@@ -75,6 +75,7 @@ public class ColorImage
 	 * @param x La coordonnée X du pixel.
 	 * @param y La coordonnée Y du pixel.
 	 * @return Pixel correspondant aux coordonnées.
+	 *
 	 * @see ColorImage#BORDER_COLOR
 	 */
 	public Color getColor(int x, int y)
@@ -95,6 +96,7 @@ public class ColorImage
 	 *
 	 * @param offset L'offset du pixel.
 	 * @return Pixel correspondant à l'offset.
+	 *
 	 * @see ColorImage#BORDER_COLOR
 	 */
 	public Color getColor(int offset)
@@ -109,6 +111,7 @@ public class ColorImage
 		}
 	}
 
+
 	/**
 	 * Retourne vrai si les coordonnées sont valides.
 	 *
@@ -116,7 +119,7 @@ public class ColorImage
 	 * @param y La coordonnée Y du pixel.
 	 * @return Vrai si les coordonnées sont valides. Faux sinon.
 	 */
-	private boolean isColorValid(int x, int y)
+	public boolean isColorValid(int x, int y)
 	{
 		return x > -1 && y > -1 && x < width && y < height;
 	}
@@ -127,16 +130,41 @@ public class ColorImage
 	 * @param offset Offset du pixel.
 	 * @return Vrai si l'offset est valide. Faux sinon.
 	 */
-	private boolean isColorValid(int offset)
+	public boolean isColorValid(int offset)
 	{
 		return offset > -1 && offset < size;
 	}
 
 
 	/**
-	 * Met à jour la couleur du pixel correspondant aux coordonnées passées en argument.
+	 * Retourne vrai si les coordonénes sont en bordure de l'image.
+	 *
 	 * @param x La coordonnée X du pixel.
 	 * @param y La coordonnée Y du pixel.
+	 * @return Vrai si les coordonnées sont en bordure. Faux sinon.
+	 */
+	public boolean isColorBorder(int x, int y)
+	{
+		return x == 0 || x == width - 1 || y == 0 || y == height - 1;
+	}
+
+	/**
+	 * Retourne vrai si l'offset est en bordure de l'image.
+	 *
+	 * @param offset Offset du pixel.
+	 * @return Vrai si l'offset est en bordure. Faux sinon.
+	 */
+	public boolean isColorBorder(int offset)
+	{
+		return (offset / width == 0) || (offset / width == height - 1) || (offset % width == 0) || (offset % width == width - 1);
+	}
+
+
+	/**
+	 * Met à jour la couleur du pixel correspondant aux coordonnées passées en argument.
+	 *
+	 * @param x     La coordonnée X du pixel.
+	 * @param y     La coordonnée Y du pixel.
 	 * @param color La nouvelle couleur du pixel.
 	 */
 	public void setColor(int x, int y, Color color)
@@ -149,8 +177,9 @@ public class ColorImage
 
 	/**
 	 * Met à jour la couleur du pixel correspondant à l'offset passées en argument.
+	 *
 	 * @param offset L'offset du pixel.
-	 * @param color La nouvelle couleur du pixel.
+	 * @param color  La nouvelle couleur du pixel.
 	 */
 	public void setColor(int offset, Color color)
 	{
