@@ -30,14 +30,16 @@ public class Blend extends TupleAbstractAlgorithm implements IComputeWindow<Colo
 
 		Color bColor, fColor, cColor;
 
-		cColor = bColor = inputImages.get(0).getColor(col, row);
-		for (int i = 1; i < inputImages.size(); i++)
+		cColor = Color.TransparentWhite;
+		for (int i = 0; i < inputImages.size(); i++)
 		{
+			bColor = cColor;
+
 			fColor = inputImages.get(i).getColor(col, row);
 
 			if (fColor.isOpaque())
 			{
-				bColor = fColor;
+				cColor = fColor;
 			}
 			else if (fColor.isTranslucent())
 			{
@@ -63,10 +65,6 @@ public class Blend extends TupleAbstractAlgorithm implements IComputeWindow<Colo
 						(int) (cAlpha * Color.ALPHA_MAX_VALUE));
 
 				System.out.println(cColor.toHexa());
-			}
-			else
-			{
-				cColor = bColor;
 			}
 		}
 

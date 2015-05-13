@@ -19,6 +19,7 @@ public class TestAura
 	{
 		args = new String[] {"res/poke/lati@s.png"};
 		args = new String[] {"res/poke/umbreon.png"};
+		args = new String[] {"res/poke/temp.png"};
 
 		if (args.length != 1)
 		{
@@ -38,7 +39,7 @@ public class TestAura
 
 		images.add(inputImage);
 
-		algo = new Aura(inputImage, Spectrum.UmbreonYellow);
+		algo = new Aura(inputImage, Spectrum.UmbreonYellow.reverse());
 		algo.process();
 		images.add(algo.getResult());
 
