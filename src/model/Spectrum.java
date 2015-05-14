@@ -75,11 +75,10 @@ public class Spectrum
 		return this.colors.get(idx);
 	}
 
-	public Iterator<Color> iterator()
+	public boolean isEmpty()
 	{
-		return this.colors.iterator();
+		return this.colors.size() == 0;
 	}
-
 
 	public Spectrum reverse()
 	{

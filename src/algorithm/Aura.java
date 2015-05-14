@@ -36,12 +36,12 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 
 		if (!inputImage.isColorBorder(col, row))
 		{
-			if (inputImage.getColor(col, row).equals(COLOR_BLANK))
+			if (inputImage.getData(col, row).equals(COLOR_BLANK))
 			{
-				if (!inputImage.getColor(col, row - 1).equals(COLOR_BLANK) ||
-					!inputImage.getColor(col - 1, row).equals(COLOR_BLANK) ||
-					!inputImage.getColor(col + 1, row).equals(COLOR_BLANK) ||
-					!inputImage.getColor(col, row + 1).equals(COLOR_BLANK))
+				if (!inputImage.getData(col, row - 1).equals(COLOR_BLANK) ||
+					!inputImage.getData(col - 1, row).equals(COLOR_BLANK) ||
+					!inputImage.getData(col + 1, row).equals(COLOR_BLANK) ||
+					!inputImage.getData(col, row + 1).equals(COLOR_BLANK))
 				{
 					value = spectrum.get(0);
 				}
@@ -54,14 +54,14 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 
 	public Color computeWindow(int col, int row, Color oldColor, Color newColor)
 	{
-		Color value = outputImage.getColor(col, row);
+		Color value = outputImage.getData(col, row);
 
-		if (inputImage.getColor(col, row).equals(COLOR_BLANK) && value.equals(COLOR_BLANK))
+		if (inputImage.getData(col, row).equals(COLOR_BLANK) && value.equals(COLOR_BLANK))
 		{
-			if (outputImage.getColor(col, row - 1).equals(oldColor) ||
-				outputImage.getColor(col - 1, row).equals(oldColor) ||
-				outputImage.getColor(col + 1, row).equals(oldColor) ||
-				outputImage.getColor(col, row + 1).equals(oldColor))
+			if (outputImage.getData(col, row - 1).equals(oldColor) ||
+				outputImage.getData(col - 1, row).equals(oldColor) ||
+				outputImage.getData(col + 1, row).equals(oldColor) ||
+				outputImage.getData(col, row + 1).equals(oldColor))
 			{
 				value = newColor;
 			}
@@ -81,7 +81,7 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 			for (int col = 0; col < width; col++)
 			{
 				Color value = computeWindow(col, row);
-				outputImage.setColor(col, row, value);
+				outputImage.setData(col, row, value);
 			}
 		}
 
@@ -97,7 +97,7 @@ public class Aura extends AbstractAlgorithm implements IComputeWindow<Color>
 				for (int col = 0; col < width; col++)
 				{
 					Color value = computeWindow(col, row, oldColor, newColor);
-					outputImage.setColor(col, row, value);
+					outputImage.setData(col, row, value);
 				}
 			}
 

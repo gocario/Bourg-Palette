@@ -42,10 +42,10 @@ public class ColorImageIO
 	}
 
 	/**
-	 * Ecris une image en fonction de son nom de fichier et de son entrée.
+	 * Ecris une image en fonction de son nom de fichier et de son entrï¿½e.
 	 *
-	 * @param colorImage L'image en ColorImage à convertir en fichier.
-	 * @param filename   Le nom de fichier de l'image à convertire.
+	 * @param colorImage L'image en ColorImage ï¿½ convertir en fichier.
+	 * @param filename   Le nom de fichier de l'image ï¿½ convertire.
 	 */
 	public static void writeFile(ColorImage colorImage, String filename)
 	{
@@ -90,7 +90,7 @@ public class ColorImageIO
 	/**
 	 * Convertit une ColorImage en un BufferedImage.
 	 *
-	 * @param colorImage La ColorImage à convertir.
+	 * @param colorImage La ColorImage ï¿½ convertir.
 	 * @return Le BufferedImage obtenu.
 	 */
 	public static BufferedImage convertColorImageToBufferedImage(ColorImage colorImage)
@@ -104,7 +104,7 @@ public class ColorImageIO
 		{
 			for (int col = 0; col < width; col++)
 			{
-				Color color = colorImage.getColor(col, row);
+				Color color = colorImage.getData(col, row);
 				// System.out.println(color.toHexa());
 
 
@@ -119,7 +119,7 @@ public class ColorImageIO
 	/**
 	 * Convertit un BufferedImage en une ColorImage.
 	 *
-	 * @param bufferedImage Le BufferedImage à convertir.
+	 * @param bufferedImage Le BufferedImage ï¿½ convertir.
 	 * @return La ColorImage obtenue.
 	 */
 	public static ColorImage convertBufferedImageToColorImage(BufferedImage bufferedImage)
@@ -137,7 +137,7 @@ public class ColorImageIO
 				// System.out.println(color.toHexa());
 
 
-				colorImage.setColor(col, row, color);
+				colorImage.setData(col, row, color);
 			}
 		}
 

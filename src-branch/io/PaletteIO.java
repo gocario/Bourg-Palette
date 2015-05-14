@@ -37,7 +37,7 @@ public class PaletteIO
 
 			for (int row = 0; row < sizeY; row++)
 			{
-				Color value = image.getColor(col, row);
+				Color value = image.getData(col, row);
 
 				spectrum.add(value);
 			}

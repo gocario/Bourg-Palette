@@ -9,7 +9,7 @@ import java.util.List;
  * @author Gocario
  * @version 1.0
  */
-public class Blend extends TupleAbstractAlgorithm implements IComputeWindow<Color>
+public class Blend extends AbstractTupleAlgorithm implements IComputeWindow<Color>
 {
 	public Blend(List<ColorImage> inputImages)
 	{
@@ -35,7 +35,7 @@ public class Blend extends TupleAbstractAlgorithm implements IComputeWindow<Colo
 		{
 			bColor = cColor;
 
-			fColor = inputImages.get(i).getColor(col, row);
+			fColor = inputImages.get(i).getData(col, row);
 
 			if (fColor.isOpaque())
 			{
@@ -85,7 +85,7 @@ public class Blend extends TupleAbstractAlgorithm implements IComputeWindow<Colo
 			for (int col = 0; col < width; col++)
 			{
 				Color value = computeWindow(col, row);
-				outputImage.setColor(col, row, value);
+				outputImage.setData(col, row, value);
 			}
 		}
 	}

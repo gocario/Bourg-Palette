@@ -26,7 +26,7 @@ public class Repainting extends AbstractAlgorithm implements IComputeWindow<Colo
 	@Override
 	public Color computeWindow(int col, int row)
 	{
-		Color color = inputImage.getColor(col, row);
+		Color color = inputImage.getData(col, row);
 
 		if (!color.equals(Color.TransparentWhite))
 		{
@@ -57,7 +57,7 @@ public class Repainting extends AbstractAlgorithm implements IComputeWindow<Colo
 			for (int col = 0; col < width; col++)
 			{
 				Color value = computeWindow(col, row);
-				outputImage.setColor(col, row, value);
+				outputImage.setData(col, row, value);
 			}
 		}
 	}

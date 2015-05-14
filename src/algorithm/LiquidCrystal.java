@@ -28,7 +28,7 @@ public class LiquidCrystal extends AbstractAlgorithm
 		{
 			for (int col = 0; col < sizeX; col += 3)
 			{
-				Color value = inputImage.getColor(col, row);
+				Color value = inputImage.getData(col, row);
 
 				if (value.getRed() == 255)
 				{
@@ -43,9 +43,9 @@ public class LiquidCrystal extends AbstractAlgorithm
 
 					for (int wrow = 0; wrow < 3; wrow++)
 					{
-						outputImage.setColor(col, row + wrow, red);
-						outputImage.setColor(col + 1, row + wrow, green);
-						outputImage.setColor(col + 2, row + wrow, blue);
+						outputImage.setData(col, row + wrow, red);
+						outputImage.setData(col + 1, row + wrow, green);
+						outputImage.setData(col + 2, row + wrow, blue);
 					}
 				}
 				else
@@ -54,7 +54,7 @@ public class LiquidCrystal extends AbstractAlgorithm
 					{
 						for (int wcol = 0; wcol < 3; wcol++)
 						{
-							outputImage.setColor(col + wcol, row + wrow, inputImage.getColor(col + wcol, row + wrow));
+							outputImage.setData(col + wcol, row + wrow, inputImage.getData(col + wcol, row + wrow));
 						}
 					}
 				}

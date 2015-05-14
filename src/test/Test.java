@@ -1,12 +1,13 @@
 package test;
 
-import algorithm.Aura;
 import algorithm.IAlgorithm;
 import algorithm.Repainting;
 import io.ColorImageIO;
+import io.PaletteIO;
 import model.ColorImage;
 import model.Palette;
 import model.Spectrum;
+import model.TileConfig;
 import view.ColorImageViewerExtended;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class Test
 {
 	public static void main(String[] args)
 	{
-		args = new String[] {"res/poke/umbreon.png"};
+		args = new String[] {"res/poke/palettes/vaporeon_palette.png"};
 
 		if (args.length != 1)
 		{
@@ -38,14 +39,19 @@ public class Test
 
 		images.add(inputImage);
 
-		algo = new Repainting(inputImage, Palette.Umbreon, Palette.Eevee);
-		algo.process();
-		images.add(algo.getResult());
+
+		TileConfig tileConfig = new TileConfig(8, 8, 1, 1, 1, 0);
+
+		System.out.println(PaletteIO.getConstructor(Spectrum.EspeonViolet));
+		System.out.println(PaletteIO.getConstructor(Palette.Umbreon));
+
+		System.out.println(PaletteIO.getConstructor(PaletteIO.readSpectrum(inputImage, tileConfig)));
+		System.out.println(tileConfig.toString());
+		System.out.println(PaletteIO.getConstructor(PaletteIO.readPalette(inputImage, tileConfig)));
+		System.out.println(tileConfig.toString());
 
 
-		// ColorImageIO.writeFile(algo.getResult(), "res/latiuis_contour.png");
-
-		ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
-		viewer.show();
+		// ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
+		// viewer.show();
 	}
 }

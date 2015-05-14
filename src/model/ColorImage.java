@@ -4,9 +4,12 @@ package model;
  * @author Gocario
  * @version 1.1
  */
-public class ColorImage
+public class ColorImage implements Image<Color>
 {
 	private static final Color BORDER_COLOR = Color.Green;
+	public static final Color OUTSIDE_COLOR = new Color(0x12345678);
+	public static final Color OutsideColor = OUTSIDE_COLOR;
+
 
 	/**
 	 * La largeur de l'image.
@@ -24,7 +27,7 @@ public class ColorImage
 	private int size;
 
 	/**
-	 * les données de l'image (les pixels).
+	 * les donnï¿½es de l'image (les pixels).
 	 */
 	private Color[] data;
 
@@ -69,18 +72,18 @@ public class ColorImage
 
 
 	/**
-	 * Retourne la couleur du pixel correspondant aux coordonnées passées en argument.
-	 * Si les coordonnées ne sont pas valides retourne BORDER_COLOR.
+	 * Retourne la couleur du pixel correspondant aux coordonnï¿½es passï¿½es en argument.
+	 * Si les coordonnï¿½es ne sont pas valides retourne BORDER_COLOR.
 	 *
-	 * @param x La coordonnée X du pixel.
-	 * @param y La coordonnée Y du pixel.
-	 * @return Pixel correspondant aux coordonnées.
-	 *
+	 * @param x La coordonnï¿½e X du pixel.
+	 * @param y La coordonnï¿½e Y du pixel.
+	 * @return Pixel correspondant aux coordonnï¿½es.
 	 * @see ColorImage#BORDER_COLOR
 	 */
-	public Color getColor(int x, int y)
+	@Override
+	public Color getData(int x, int y)
 	{
-		if (this.isColorValid(x, y))
+		if (this.isPixelValid(x, y))
 		{
 			return data[x + y * width];
 		}
@@ -90,18 +93,23 @@ public class ColorImage
 		}
 	}
 
+	public Color getColor(int x, int y)
+	{
+		return this.getData(x, y);
+	}
+
 	/**
-	 * Retourne la couleur du pixel correspondant à l'offset passées en argument.
+	 * Retourne la couleur du pixel correspondant ï¿½ l'offset passï¿½es en argument.
 	 * Si l'offset n'est pas valide retourne BORDER_COLOR.
 	 *
 	 * @param offset L'offset du pixel.
-	 * @return Pixel correspondant à l'offset.
-	 *
+	 * @return Pixel correspondant ï¿½ l'offset.
 	 * @see ColorImage#BORDER_COLOR
 	 */
-	public Color getColor(int offset)
+	@Override
+	public Color getData(int offset)
 	{
-		if (this.isColorValid(offset))
+		if (this.isPixelValid(offset))
 		{
 			return data[offset];
 		}
@@ -111,18 +119,24 @@ public class ColorImage
 		}
 	}
 
+	public Color getColor(int offset)
+	{
+		return this.getData(offset);
+	}
+
 
 	/**
-	 * Retourne vrai si les coordonnées sont valides.
+	 * Retourne vrai si les coordonnï¿½es sont valides.
 	 *
-	 * @param x La coordonnée X du pixel.
-	 * @param y La coordonnée Y du pixel.
-	 * @return Vrai si les coordonnées sont valides. Faux sinon.
+	 * @param x La coordonnï¿½e X du pixel.
+	 * @param y La coordonnï¿½e Y du pixel.
+	 * @return Vrai si les coordonnï¿½es sont valides. Faux sinon.
 	 */
-	public boolean isColorValid(int x, int y)
+	public boolean isPixelValid(int x, int y)
 	{
 		return x > -1 && y > -1 && x < width && y < height;
 	}
+
 
 	/**
 	 * Retourn vrai si l'offset est valide.
@@ -130,18 +144,18 @@ public class ColorImage
 	 * @param offset Offset du pixel.
 	 * @return Vrai si l'offset est valide. Faux sinon.
 	 */
-	public boolean isColorValid(int offset)
+	public boolean isPixelValid(int offset)
 	{
 		return offset > -1 && offset < size;
 	}
 
 
 	/**
-	 * Retourne vrai si les coordonénes sont en bordure de l'image.
+	 * Retourne vrai si les coordonï¿½nes sont en bordure de l'image.
 	 *
-	 * @param x La coordonnée X du pixel.
-	 * @param y La coordonnée Y du pixel.
-	 * @return Vrai si les coordonnées sont en bordure. Faux sinon.
+	 * @param x La coordonnï¿½e X du pixel.
+	 * @param y La coordonnï¿½e Y du pixel.
+	 * @return Vrai si les coordonnï¿½es sont en bordure. Faux sinon.
 	 */
 	public boolean isColorBorder(int x, int y)
 	{
@@ -161,31 +175,43 @@ public class ColorImage
 
 
 	/**
-	 * Met à jour la couleur du pixel correspondant aux coordonnées passées en argument.
+	 * Met ï¿½ jour la couleur du pixel correspondant aux coordonnï¿½es passï¿½es en argument.
 	 *
-	 * @param x     La coordonnée X du pixel.
-	 * @param y     La coordonnée Y du pixel.
+	 * @param x     La coordonnï¿½e X du pixel.
+	 * @param y     La coordonnï¿½e Y du pixel.
 	 * @param color La nouvelle couleur du pixel.
 	 */
-	public void setColor(int x, int y, Color color)
+	@Override
+	public void setData(int x, int y, Color color)
 	{
-		if (this.isColorValid(x, y))
+		if (this.isPixelValid(x, y))
 		{
 			this.data[x + y * width] = color;
 		}
 	}
 
+	public void setColor(int x, int y, Color color)
+	{
+		this.setData(x, y, color);
+	}
+
 	/**
-	 * Met à jour la couleur du pixel correspondant à l'offset passées en argument.
+	 * Met ï¿½ jour la couleur du pixel correspondant ï¿½ l'offset passï¿½es en argument.
 	 *
 	 * @param offset L'offset du pixel.
 	 * @param color  La nouvelle couleur du pixel.
 	 */
-	public void setColor(int offset, Color color)
+	@Override
+	public void setData(int offset, Color color)
 	{
-		if (this.isColorValid(offset))
+		if (this.isPixelValid(offset))
 		{
 			this.data[offset] = color;
 		}
+	}
+
+	public void setColor(int offset, Color color)
+	{
+		this.setData(offset, color);
 	}
 }

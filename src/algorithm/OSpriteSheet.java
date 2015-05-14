@@ -62,7 +62,7 @@ public class OSpriteSheet extends AbstractOAlgorithm
 					value = COLOR_BACKGROUND;
 				}
 
-				resultImage.setColor(col, row, value);
+				resultImage.setData(col, row, value);
 			}
 		}
 	}

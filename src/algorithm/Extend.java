@@ -30,9 +30,9 @@ public class Extend extends AbstractAlgorithm
 			{
 				int x = (int) (col / ratio);
 				int y = (int) (row / ratio);
-				Color value = inputImage.getColor(x, y);
+				Color value = inputImage.getData(x, y);
 
-				outputImage.setColor(col, row, value);
+				outputImage.setData(col, row, value);
 			}
 		}
 	}
