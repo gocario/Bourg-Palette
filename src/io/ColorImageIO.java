@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 
+import com.sun.xml.internal.bind.v2.runtime.Coordinator;
 import model.Color;
 import model.ColorImage;
 
@@ -139,6 +140,22 @@ public class ColorImageIO
 
 				colorImage.setData(col, row, color);
 			}
+		}
+
+		return colorImage;
+	}
+
+
+	private static final Color BLANK_COLOR = Color.TransparentWhite;
+
+	public static ColorImage createBlankColorImage(int width, int height)
+	{
+		ColorImage colorImage = new ColorImage(width, height);
+
+		int size = colorImage.getSize();
+		for (int i = 0; i < size; i++)
+		{
+			colorImage.setData(i, BLANK_COLOR);
 		}
 
 		return colorImage;

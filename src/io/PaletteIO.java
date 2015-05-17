@@ -56,6 +56,32 @@ public class PaletteIO
 		return new Spectrum(colors);
 	}
 
+	public static void writeSpectrum(Spectrum spectrum, ColorImage outputImage, TileConfig tileConfig)
+	{
+		tileConfig = tileConfig.clone();
+
+		int height = outputImage.getHeight() - tileConfig.getMarginHeight();
+		int increment = tileConfig.getHeight() + tileConfig.getPaddingHeight();
+		int col = tileConfig.getMarginWidth();
+		for (int row = height - (increment  * spectrum.size()); row < height; row += increment)
+		{
+			Color color = spectrum.get((row - tileConfig.getMarginHeight()) / increment);
+
+			System.out.println(color.toHexa() + "->(" + col + "|" + row + ")");
+
+			for (int wrow = 0; wrow < tileConfig.getHeight(); wrow++)
+			{
+				for (int wcol = 0; wcol < tileConfig.getWidth(); wcol++)
+				{
+					outputImage.setData(col + wcol, row + wrow, color);
+				}
+			}
+		}
+	}
+
+
+
+
 	public static String getConstructor(Spectrum spectrum)
 	{
 		StringBuilder sb = new StringBuilder();

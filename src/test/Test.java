@@ -20,7 +20,7 @@ public class Test
 	public static void main(String[] args)
 	{
 		args = new String[] {"res/poke/lati@s.png"};
-		// args = new String[] {"input/lena_std.png"};
+		//args = new String[] {"input/lena_std.png"};
 
 		if (args.length != 1)
 		{
@@ -39,32 +39,14 @@ public class Test
 
 		images.add(inputImage);
 
+		TileConfig tileConfig = new TileConfig(8, 8, 1, 1, 1, 1);
 
-		images.add(AbstractFilter.filter(inputImage, new GreyFilter()));
-		images.add(AbstractFilter.filter(inputImage, new IFilter()
-		{
-			@Override
-			public Color filter(Color inputColor)
-			{
-				int grey = (int) (int)(0.299 * inputColor.getRed() + 0.587 * inputColor.getGreen() + 0.144 * inputColor.getBlue());
+		ColorImage outputImage = ColorImageIO.createBlankColorImage(tileConfig.getMarginWidth() * 2 + tileConfig.getWidth(), tileConfig.getMarginHeight() * 2 + (tileConfig.getHeight() + tileConfig.getPaddingHeight()) *Spectrum.IceBlue.size());
+		PaletteIO.writeSpectrum(Spectrum.IceBlue, outputImage, tileConfig);
 
-				return new Color(grey, grey, grey, inputColor.getAlpha());
-			}
-		}));
-		images.add(AbstractFilter.filter(inputImage, new IFilter()
-		{
-			@Override
-			public Color filter(Color inputColor)
-			{
-				int grey = (int) (int)(0.2126 * inputColor.getRed() + 0.7152 * inputColor.getGreen() + 0.0722 * inputColor.getBlue());
+		images.add(outputImage);
 
-				return new Color(grey, grey, grey, inputColor.getAlpha());
-			}
-		}));
-		// images.add(AbstractFilter.filter(inputImage, new RedFilter()));
-		// images.add(AbstractFilter.filter(inputImage, new GreenFilter()));
-		// images.add(AbstractFilter.filter(inputImage, new BlueFilter()));
-
+		ColorImageIO.writeFile(outputImage, "res/aze.png");
 
 		ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
 		viewer.show();
