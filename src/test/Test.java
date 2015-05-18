@@ -8,6 +8,7 @@ import io.ColorImageIO;
 import io.PaletteIO;
 import model.*;
 import view.ColorImageViewerExtended;
+import view.PaletteViewer;
 
 import java.util.ArrayList;
 
@@ -39,16 +40,10 @@ public class Test
 
 		images.add(inputImage);
 
-		TileConfig tileConfig = new TileConfig(8, 8, 1, 1, 1, 1);
 
-		ColorImage outputImage = ColorImageIO.createBlankColorImage(tileConfig.getMarginWidth() * 2 + tileConfig.getWidth(), tileConfig.getMarginHeight() * 2 + (tileConfig.getHeight() + tileConfig.getPaddingHeight()) *Spectrum.IceBlue.size());
-		PaletteIO.writeSpectrum(Spectrum.IceBlue, outputImage, tileConfig);
 
-		images.add(outputImage);
-
-		ColorImageIO.writeFile(outputImage, "res/aze.png");
-
-		ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
+		// ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
+		PaletteViewer viewer = new PaletteViewer(Palette.Eevee);
 		viewer.show();
 	}
 }

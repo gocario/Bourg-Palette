@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @see ColorImage
  */
-public class ColorImageViewerExtended
+public class ColorImageViewerExtended extends AbstractViewer
 {
 	private List<ColorImage> images;
 
@@ -24,6 +24,7 @@ public class ColorImageViewerExtended
 		this.images = images;
 	}
 
+	@Override
 	public void show()
 	{
 		JFrame frame = new JFrame("ColorImage Viewer - Extended Edition Gold 2008 Collector");

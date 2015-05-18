@@ -148,16 +148,26 @@ public class ColorImageIO
 
 	private static final Color BLANK_COLOR = Color.TransparentWhite;
 
-	public static ColorImage createBlankColorImage(int width, int height)
+	public static ColorImage createColorImage(int width, int height)
+	{
+		return ColorImageIO.createColorImage(width, height, BLANK_COLOR);
+	}
+
+	public static ColorImage createColorImage(int width, int height, Color color)
 	{
 		ColorImage colorImage = new ColorImage(width, height);
 
 		int size = colorImage.getSize();
 		for (int i = 0; i < size; i++)
 		{
-			colorImage.setData(i, BLANK_COLOR);
+			colorImage.setData(i, color);
 		}
 
 		return colorImage;
+	}
+
+	public static BufferedImage convertColorToBufferedImage(Color color, int size)
+	{
+		return ColorImageIO.convertColorImageToBufferedImage(ColorImageIO.createColorImage(size, size, color));
 	}
 }

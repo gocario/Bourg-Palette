@@ -2,6 +2,7 @@ package io;
 
 import model.*;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -7,13 +7,13 @@ package model;
 public class ColorARGB
 {
 	/**
-	 * Représentation d'une couleur en format numérique
+	 * Reprï¿½sentation d'une couleur en format numï¿½rique
 	 */
 	public enum ColorType
 	{
-		/* Représente une couleur RGB 8-bit. */
+		/* Reprï¿½sente une couleur RGB 8-bit. */
 		INT_RGB,
-		/* Représente une couleur ARGB 8-bit. */
+		/* Reprï¿½sente une couleur ARGB 8-bit. */
 		INT_ARGB,
 		INT_R__,
 		INT__G_,
@@ -236,7 +236,7 @@ public class ColorARGB
 	}
 
 	/**
-	 * Retourne vrai si le composante de transparence est complète.
+	 * Retourne vrai si le composante de transparence est complï¿½te.
 	 *
 	 * @return Vrai si la couleur est opaque.
 	 *
@@ -249,7 +249,7 @@ public class ColorARGB
 	}
 
 	/**
-	 * Retourne vrai si le composante de transparence n'est ni nulle ni complète.
+	 * Retourne vrai si le composante de transparence n'est ni nulle ni complï¿½te.
 	 *
 	 * @return Vrai si la couleur est translucide.
 	 *
@@ -263,13 +263,19 @@ public class ColorARGB
 	}
 
 
+	public java.awt.Color toAwtColor()
+	{
+		return new java.awt.Color(this.getRed(), this.getGreen(), this.getBlue(), this.getAlpha());
+	}
+
+
 	/**
 	 * Retourne vrai si :
-	 * - Les composantes chromatiques et de transparence sont égales ;
+	 * - Les composantes chromatiques et de transparence sont ï¿½gales ;
 	 * - Les composantes de transparence sont nulles.
 	 *
-	 * @param obj L'objet à comparer.
-	 * @return Vrai si l'objet possède la même chromaticité.
+	 * @param obj L'objet ï¿½ comparer.
+	 * @return Vrai si l'objet possï¿½de la mï¿½me chromaticitï¿½.
 	 */
 	@Override
 	public boolean equals(Object obj)

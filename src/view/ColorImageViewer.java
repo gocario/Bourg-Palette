@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @see ColorImage
  */
-public class ColorImageViewer
+public class ColorImageViewer extends AbstractViewer
 {
 	private ColorImage image;
 
@@ -24,6 +24,7 @@ public class ColorImageViewer
 		this.image = image ;
 	}
 
+	@Override
 	public void show()
 	{
 		JFrame frame = new JFrame("ColorImage Viewer");
