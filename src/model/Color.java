@@ -121,4 +121,53 @@ public class Color extends ColorARGB
 
 	public static final Color TransparentBlack = new Color(0x00000000);
 	public static final Color TransparentWhite = new Color(0x00FFFFFF);
+
+
+	/**
+	 * Retourne une couleur plus claire suivant une constante interne.
+	 * @return Une nouvelle couleur clarifié.
+	 */
+	public Color brighter()
+	{
+		return Color.boundValues(
+				(this.getRed() + BRIGHTER_VALUE),
+				(this.getGreen() + BRIGHTER_VALUE),
+				(this.getBlue() + BRIGHTER_VALUE),
+				this.getAlpha()
+		);
+	}
+
+	/**
+	 * Retourne une couleur plus sombre suivant une constante interne.
+	 * @return Une nouvelle couleur sombrifiée.
+	 */
+	public Color darker()
+	{
+		return Color.boundValues(
+				(this.getRed() - DARKER_VALUE),
+				(this.getGreen() - DARKER_VALUE),
+				(this.getBlue() - DARKER_VALUE),
+				this.getAlpha()
+		);
+	}
+
+	public java.awt.Color toAwtColor()
+	{
+		return new java.awt.Color(this.argb);
+	}
+
+
+	public static Color boundValues(int red, int green, int blue)
+	{
+		return Color.boundValues(red, green, blue, ALPHA_MAX_VALUE);
+	}
+	public static Color boundValues(int red, int green, int blue, int alpha)
+	{
+		return new Color(
+				Math.bound(red, COLOR_MIN_VALUE, COLOR_MAX_VALUE),
+				Math.bound(green, COLOR_MIN_VALUE, COLOR_MAX_VALUE),
+				Math.bound(blue, COLOR_MIN_VALUE, COLOR_MAX_VALUE),
+				Math.bound(alpha, ALPHA_MIN_VALUE, ALPHA_MAX_VALUE)
+		);
+	}
 }

@@ -8,6 +8,32 @@ import java.util.Random;
  */
 public class Math
 {
+	public static Comparable bound(Comparable val, Comparable min, Comparable max)
+	{
+		Comparable value = val;
+
+		if (val.compareTo(min) == -1)
+			value = min;
+
+		if (val.compareTo(max) == +1)
+			value = max;
+
+		return value;
+	}
+
+
+	public static int bound(int val, int min, int max)
+	{
+		int value = val;
+
+		if (val < min)
+			value = min;
+
+		if (val > max)
+			value = max;
+
+		return value;
+	}
 
 	public static Comparable min(Comparable... values)
 	{
@@ -30,7 +56,7 @@ public class Math
 
 		for (int i = 1; i < values.length; i++)
 		{
-			if (values[i].compareTo(max) == 1)
+			if (values[i].compareTo(max) == +1)
 			{
 				max = values[i];
 			}

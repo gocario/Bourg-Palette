@@ -1,13 +1,8 @@
 package test;
 
-import algorithm.GreyColoring;
 import algorithm.IAlgorithm;
-import algorithm.Repainting;
-import algorithm.colorimage.*;
 import io.ColorImageIO;
-import io.PaletteIO;
 import model.*;
-import view.ColorImageViewerExtended;
 import view.PaletteViewer;
 
 import java.util.ArrayList;
@@ -40,10 +35,11 @@ public class Test
 
 		images.add(inputImage);
 
-
+		System.out.println(Color.White.toHexa());
+		System.out.println(Color.White.brighter().toHexa());
 
 		// ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
-		PaletteViewer viewer = new PaletteViewer(Palette.Eevee);
-		viewer.show();
+		// PaletteViewer viewer = new PaletteViewer(Palette.Eevee);
+		// viewer.show();
 	}
 }

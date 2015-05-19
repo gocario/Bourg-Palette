@@ -89,6 +89,17 @@ public class ColorARGB
 
 
 	/**
+	 * Constante interne de la lumification de la couleur.
+	 */
+	public static final int BRIGHTER_VALUE = 0x04;
+
+	/**
+	 * Constante interne de la sombrification de la couleur.
+	 */
+	public static final int DARKER_VALUE = 0x04;
+
+
+	/**
 	 * Les composantes d'une couleur, sous la forme AARRGGBB.
 	 */
 	protected int argb;
@@ -108,11 +119,19 @@ public class ColorARGB
 					(blue & COLOR_MAX_VALUE) << BLUE_OFFSET;
 	}
 
+	/**
+	 * @param red   La composante chromatique rouge.
+	 * @param green La composante chromatique verte.
+	 * @param blue  La composante chromatique bleue.
+	 */
 	public ColorARGB(int red, int green, int blue)
 	{
 		this(red, green, blue, ALPHA_MAX_VALUE);
 	}
 
+	/**
+	 * @param argb La composante d'une couleur.
+	 */
 	public ColorARGB(int argb)
 	{
 		this.argb = argb & ARGB_MASK;
@@ -120,7 +139,7 @@ public class ColorARGB
 
 	/**
 	 * @param argb      Les composantes d'une couleur.
-	 * @param colorType Type des composantes de la couleur.
+	 * @param colorType Le type des composantes de la couleur.
 	 * @see ColorType
 	 */
 	public ColorARGB(int argb, ColorType colorType)
@@ -260,12 +279,6 @@ public class ColorARGB
 	public boolean isTranslucent()
 	{
 		return !isTransparent() && !isOpaque();
-	}
-
-
-	public java.awt.Color toAwtColor()
-	{
-		return new java.awt.Color(this.getRed(), this.getGreen(), this.getBlue(), this.getAlpha());
 	}
 
 
