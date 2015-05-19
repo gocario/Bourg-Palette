@@ -16,7 +16,7 @@ public class TestPaletting
 {
 	public static void main(String[] args)
 	{
-		args = new String[] {"I:\\winnt\\mes documents\\data\\gs\\Game Boy Advance - Golden Sun 2 The Lost Age - Item Icons.png"};
+		args = new String[] {"res/mana_tree.png"};
 
 		if (args.length != 1)
 		{
