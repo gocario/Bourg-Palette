@@ -8,6 +8,17 @@ import java.util.Random;
  */
 public class Math
 {
+	public static int abs(int val)
+	{
+		return (val < 0 ? -val : val);
+	}
+
+	public static float abs(float val)
+	{
+		return (val < 0 ? -val : val);
+	}
+
+
 	public static Comparable bound(Comparable val, Comparable min, Comparable max)
 	{
 		Comparable value = val;
@@ -35,6 +46,20 @@ public class Math
 		return value;
 	}
 
+	public static float bound(float val, float min, float max)
+	{
+		float value = val;
+
+		if (val < min)
+			value = min;
+
+		if (val > max)
+			value = max;
+
+		return value;
+	}
+
+	/*
 	public static Comparable min(Comparable... values)
 	{
 		Comparable min = values[0];
@@ -64,7 +89,68 @@ public class Math
 
 		return max;
 	}
+	*/
 
+	public static int min(int... values)
+	{
+		int min = values[0];
+
+		for (int i = 1; i < values.length; i++)
+		{
+			if (values[i] < min)
+			{
+				min = values[i];
+			}
+		}
+
+		return min;
+	}
+
+	public static int max(int... values)
+	{
+		int max = values[0];
+
+		for (int i = 1; i < values.length; i++)
+		{
+			if (values[i] > max)
+			{
+				max = values[i];
+			}
+		}
+
+		return max;
+	}
+
+
+	public static float min(float... values)
+	{
+		float min = values[0];
+
+		for (int i = 1; i < values.length; i++)
+		{
+			if (values[i] < min)
+			{
+				min = values[i];
+			}
+		}
+
+		return min;
+	}
+
+	public static float max(float... values)
+	{
+		float max = values[0];
+
+		for (int i = 1; i < values.length; i++)
+		{
+			if (values[i] > max)
+			{
+				max = values[i];
+			}
+		}
+
+		return max;
+	}
 
 
 	private static Random rand = null;

@@ -129,6 +129,7 @@ public class ColorARGB
 		this(red, green, blue, ALPHA_MAX_VALUE);
 	}
 
+
 	/**
 	 * @param argb La composante d'une couleur.
 	 */
@@ -300,6 +301,17 @@ public class ColorARGB
 			return (that.argb == this.argb) || (that.isTransparent() && this.isTransparent());
 		}
 		return false;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "ARGB[" +
+			   "r=" + getRed() + "," +
+			   "g=" + getGreen() + "," +
+			   "b=" + getBlue() + "," +
+			   "a=" + getAlpha() +
+			   ']';
 	}
 }
 

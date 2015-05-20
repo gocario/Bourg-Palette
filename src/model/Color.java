@@ -170,4 +170,9 @@ public class Color extends ColorARGB
 				Math.bound(alpha, ALPHA_MIN_VALUE, ALPHA_MAX_VALUE)
 		);
 	}
+
+	public static Color fromARGB(ColorARGB argb)
+	{
+		return new Color(argb.argb);
+	}
 }

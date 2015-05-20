@@ -101,9 +101,9 @@ public class Spectrum
 		sb.append(this.name);
 		sb.append(" >");
 
-		for (Iterator<Color> iterator = this.colors.iterator(); iterator.hasNext();)
+		for (int i = 0; i < this.colors.size(); i++)
 		{
-			Color color = iterator.next();
+			Color color = this.colors.get(i);
 
 			sb.append('\n');
 			sb.append('\t');

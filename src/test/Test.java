@@ -3,6 +3,7 @@ package test;
 import algorithm.IAlgorithm;
 import io.ColorImageIO;
 import model.*;
+import model.isometric.IsometricCube;
 import view.PaletteViewer;
 
 import java.util.ArrayList;
@@ -35,8 +36,22 @@ public class Test
 
 		images.add(inputImage);
 
-		System.out.println(Color.White.toHexa());
-		System.out.println(Color.White.brighter().toHexa());
+
+		/*
+		ColorARGB argb = new ColorARGB(0xFFFF8800);
+		ColorAHSL ahsl = ColorAHSL.fromRGB(argb);
+		ColorARGB argb1 = ColorAHSL.toRGB(ahsl);
+
+		System.out.println(argb.toString());
+		System.out.println(ahsl.toString());
+		System.out.println(argb1.toString());
+		*/
+
+
+		IsometricCube cube = new IsometricCube(new Color(0xFFFF8800));
+
+
+
 
 		// ColorImageViewerExtended viewer = new ColorImageViewerExtended(images);
 		// PaletteViewer viewer = new PaletteViewer(Palette.Eevee);
