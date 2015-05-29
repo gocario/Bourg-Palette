@@ -6,7 +6,7 @@ import model.Color;
  * @author Gocario
  * @version 1.0
  */
-public class RedFilter extends AbstractFilter implements IFilter
+public class RedFilter implements IFilter
 {
 	@Override
 	public Color filter(Color inputColor)

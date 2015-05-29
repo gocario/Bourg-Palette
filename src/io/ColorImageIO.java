@@ -91,7 +91,7 @@ public class ColorImageIO
 	/**
 	 * Convertit une ColorImage en un BufferedImage.
 	 *
-	 * @param colorImage La ColorImage � convertir.
+	 * @param colorImage La ColorImage à convertir.
 	 * @return Le BufferedImage obtenu.
 	 */
 	public static BufferedImage convertColorImageToBufferedImage(ColorImage colorImage)
@@ -120,7 +120,7 @@ public class ColorImageIO
 	/**
 	 * Convertit un BufferedImage en une ColorImage.
 	 *
-	 * @param bufferedImage Le BufferedImage � convertir.
+	 * @param bufferedImage Le BufferedImage à convertir.
 	 * @return La ColorImage obtenue.
 	 */
 	public static ColorImage convertBufferedImageToColorImage(BufferedImage bufferedImage)
@@ -169,5 +169,22 @@ public class ColorImageIO
 	public static BufferedImage convertColorToBufferedImage(Color color, int size)
 	{
 		return ColorImageIO.convertColorImageToBufferedImage(ColorImageIO.createColorImage(size, size, color));
+	}
+
+	public static ColorImage applyLayerOnBackground(ColorImage background, ColorImage layer, int x, int y)
+	{
+		Color color;
+		int width = (background.getWidth() - x < layer.getWidth() ? background.getWidth() - x : layer.getWidth());
+		int height = (background.getHeight() - y < layer.getHeight() ? background.getHeight() - y : layer.getHeight());
+		for (int row = 0; row < height; row++)
+		{
+			for (int col = 0; col < width; col++)
+			{
+				color = layer.getColor(col, row);
+
+				background.setColor(col + y, row + x, color);
+			}
+		}
+		return background;
 	}
 }
